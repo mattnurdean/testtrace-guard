@@ -9,13 +9,13 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 | 1 | PAUSED  | — | Token Factory 404; paused for Discord clarification. Fallback to MOCK mode per Playbook §5 |
 | 2 | DONE    | <paste_step2_commit_hash> | Synthetic dataset generator complete and verified (6/6 tests pass) |
 | 3 | DONE | <step3_commit_hash> | Deterministic analytics engine verified (5/5 tests pass, 0.44s execution) |
-| 4 | DONE | pending | Rule engine complete and verified (7/7 tests pass, <10 ms evaluation) |
-| 5 | DONE | pending | Knowledge base curated & BM25 engine verified (10/10 tests pass, <1 ms search) |
-| 6 | DONE | pending | Hybrid retrieval pipeline complete and verified (8/8 tests pass, <2 ms retrieval) |
-| 7 | DONE | pending | LLM reasoner & guardrail validator verified (7/7 tests pass, <10 ms mock) |
-| 8 | DONE | pending | End-to-end pipeline, audit storage & FastAPI verified (9/9 tests pass, <50 ms) |
-| 9 | IN_PROGRESS | — | Streamlit UI (app.py) |
-| 10 | PENDING | — | Evaluation + AMD benchmark |
+| 4 | DONE | <step4_commit_hash> | Rule engine complete and verified (7/7 tests pass, <10 ms evaluation) |
+| 5 | DONE | <step5_commit_hash> | Knowledge base curated & BM25 engine verified (10/10 tests pass, 0.33s) |
+| 6 | DONE | <step6_commit_hash> | Hybrid retrieval pipeline complete and verified (8/8 tests pass, 1.10s) |
+| 7 | DONE | <step7_commit_hash> | LLM reasoner & guardrail validator verified (7/7 tests pass, 1.55s) |
+| 8 | DONE | <step8_commit_hash> | Pipeline, audit storage & FastAPI verified (9/9 tests pass, 44.97 ms CLI) |
+| 9 | DONE | pending | Streamlit UI delivered & validated (4/4 tests pass, full 5-tab dashboard) |
+| 10 | IN_PROGRESS | — | Evaluation + AMD benchmark (scripts/run_benchmark.py, tests/test_benchmark.py) |
 | 11 | PENDING | — | Packaging & README |
 | 12 | PENDING | — | Demo script & video |
 | 13 | PENDING | — | Slides & descriptions |
@@ -60,7 +60,8 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - testtrace/pipeline.py — end-to-end triage pipeline orchestrator and CLI banner tool
 - testtrace/api.py — FastAPI service exposing triage, package cases, and audit history endpoints
 - tests/test_pipeline.py — acceptance tests for end-to-end triage, storage persistence, and API routes
-
+- app.py — interactive Streamlit dashboard for RF failure triage, deep-dive tabs, and audit telemetry
+- tests/test_ui.py — headless acceptance tests for UI compilation, package discovery, and ledger queries
 
 ## Decisions / overrides
 - Paused Step 1 live endpoint verification due to 404 route error on Token Factory; activated Playbook §5 mock mode fallback to safeguard internal freeze schedule (Oct 15).
@@ -78,7 +79,9 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - Enforced invariant: INSUFFICIENT_EVIDENCE triage must always map to status NEEDS_MORE_DATA.
 - Dual-layer audit architecture: full pipeline state stored as human-readable JSON files, with SQLite indexing for rapid sub-millisecond querying in API endpoints.
 - FastAPI endpoints utilize application singletons for KB indexing and storage to maximize throughput and eliminate redundant initialization overhead.
-
+- Leveraged Streamlit's native DataFrame, metric cards, and expanders to deliver a zero-overhead interface without external charting bloat.
+- Cached singleton instances of AuditStorage and KBIndexer using st.cache_resource to minimize re-indexing latency across interactive clicks.
+- Integrated quick preset buttons in the sidebar for rapid demonstration of Canonical Cases A, B, and C during live evaluation.
 
 ## Assumptions
 - Python 3.14 virtual environment active.
@@ -89,6 +92,8 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - Synthetic dataset in data/synthetic/ and SOP corpus in data/kb/ remain available locally.
 - Synthetic dataset in data/synthetic/ and SOP corpus in data/kb/ remain available locally.
 - Dependencies fastapi, uvicorn, and httpx installed in active Python 3.14 venv.
+- Streamlit installed in active Python 3.14 virtual environment.
+- Local browser available on port 8501 for visual review.
 
 ## Open issues
 - AMD Developer Cloud instance pending launch and verification in Step 1.
@@ -102,3 +107,4 @@ Step 6 — Hybrid retrieval pipeline (testtrace/retrieval.py, tests/test_retriev
 Step 7 — LLM reasoner + validator (testtrace/reasoner.py, testtrace/validator.py, tests/test_reasoner.py).
 Step 8 — End-to-end pipeline, CLI, and audit storage (testtrace/pipeline.py, testtrace/api.py, tests/test_pipeline.py).
 Step 9 — Streamlit UI (app.py).
+Step 10 — Evaluation + AMD benchmark (scripts/run_benchmark.py, tests/test_benchmark.py).
