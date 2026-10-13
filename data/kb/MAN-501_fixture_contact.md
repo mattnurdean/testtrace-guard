@@ -23,5 +23,5 @@ This manual defines diagnostic workflows for intermittent or non-repeatable RF t
 ## 4. Mandatory Corrective Action Protocol
 1. **Fixture Cleanliness Inspection**: Inspect fixture RF launch pins and contact interfaces under 20x magnification for debris, bent tips, or flux contamination.
 2. **Alcohol Swab & Decontamination**: Clean probe contacts using electronic-grade isopropyl alcohol (IPA) and lint-free micro-swabs.
-3. **Repeatability Verification**: Perform a 5-cycle re-seat repeatability test using a verification unit. Confirm sweep-to-sweep variance $\sigma < 0.05\text{ dB}$.
+3. **Repeatability Verification**: Perform a 5-cycle re-seat and reconnect repeatability test using a verification unit. Confirm sweep-to-sweep repeatability variance $\sigma < 0.05\text{ dB}$.
 4. **Fixture Alignment & Clamping**: Adjust mechanical guides and verify clamping pressure conforms to production mechanical specifications before resuming testing.

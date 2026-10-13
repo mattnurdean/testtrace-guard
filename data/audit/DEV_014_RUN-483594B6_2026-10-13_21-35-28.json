@@ -1,0 +1,335 @@
+{
+  "run_id": "RUN-483594B6",
+  "case_id": "DEV_014",
+  "timestamp": "2026-10-13T21:35:28Z",
+  "mode": "mock",
+  "analytics": {
+    "case_id": "DEV_014",
+    "facts": [
+      {
+        "fact_id": "E-001",
+        "category": "CALIBRATION_STATUS",
+        "description": "Station ST-B calibration overdue by 40 days (due 2026-09-01).",
+        "metric_name": "calibration_overdue_days",
+        "station_id": "ST-B",
+        "unit_id": null,
+        "freq_ghz": null,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": 40.0,
+        "threshold": 0.0,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "station_history.csv:ST-B"
+      },
+      {
+        "fact_id": "E-002",
+        "category": "GOLDEN_DEVIATION",
+        "description": "Station ST-B golden reference check failed on lo_leakage @ 2.4 GHz: mean -49.507 dBm deviates by +2.493 dBm (tol +/-0.50).",
+        "metric_name": "lo_leakage",
+        "station_id": "ST-B",
+        "unit_id": "GOLDEN_01",
+        "freq_ghz": 2.4,
+        "measured_value": -49.507,
+        "reference_value": -52.0,
+        "delta": 2.493,
+        "threshold": 0.5,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:station_id=ST-B&unit_id=GOLDEN_01"
+      },
+      {
+        "fact_id": "E-003",
+        "category": "GOLDEN_DEVIATION",
+        "description": "Station ST-B golden reference check failed on phase_noise_10k @ 2.4 GHz: mean -109.440 dBc/Hz deviates by +0.560 dBc/Hz (tol +/-0.30).",
+        "metric_name": "phase_noise_10k",
+        "station_id": "ST-B",
+        "unit_id": "GOLDEN_01",
+        "freq_ghz": 2.4,
+        "measured_value": -109.44,
+        "reference_value": -110.0,
+        "delta": 0.56,
+        "threshold": 0.3,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:station_id=ST-B&unit_id=GOLDEN_01"
+      },
+      {
+        "fact_id": "E-004",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on insertion_loss @ 1.0 GHz: ST-A mean -2.607 vs ST-B mean -2.128 (delta -0.479, p=0.0000).",
+        "metric_name": "insertion_loss",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 1.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -0.479,
+        "threshold": 0.2,
+        "p_value": 0.0,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      },
+      {
+        "fact_id": "E-005",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on insertion_loss @ 2.0 GHz: ST-A mean -2.738 vs ST-B mean -2.276 (delta -0.462, p=0.0000).",
+        "metric_name": "insertion_loss",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 2.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -0.462,
+        "threshold": 0.2,
+        "p_value": 0.0,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      },
+      {
+        "fact_id": "E-006",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on insertion_loss @ 3.0 GHz: ST-A mean -2.898 vs ST-B mean -2.432 (delta -0.466, p=0.0000).",
+        "metric_name": "insertion_loss",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 3.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -0.466,
+        "threshold": 0.2,
+        "p_value": 0.0,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      },
+      {
+        "fact_id": "E-007",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on insertion_loss @ 4.0 GHz: ST-A mean -3.037 vs ST-B mean -2.610 (delta -0.428, p=0.0000).",
+        "metric_name": "insertion_loss",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 4.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -0.428,
+        "threshold": 0.2,
+        "p_value": 0.0,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      },
+      {
+        "fact_id": "E-008",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on insertion_loss @ 5.0 GHz: ST-A mean -3.205 vs ST-B mean -2.760 (delta -0.445, p=0.0000).",
+        "metric_name": "insertion_loss",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 5.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -0.445,
+        "threshold": 0.2,
+        "p_value": 0.0,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      },
+      {
+        "fact_id": "E-009",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on insertion_loss @ 6.0 GHz: ST-A mean -3.331 vs ST-B mean -2.912 (delta -0.419, p=0.0000).",
+        "metric_name": "insertion_loss",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 6.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -0.419,
+        "threshold": 0.2,
+        "p_value": 0.0,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      },
+      {
+        "fact_id": "E-010",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on lo_leakage @ 2.4 GHz: ST-A mean -52.516 vs ST-B mean -50.218 (delta -2.298, p=0.0000).",
+        "metric_name": "lo_leakage",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 2.4,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -2.298,
+        "threshold": 1.0,
+        "p_value": 0.0,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      },
+      {
+        "fact_id": "E-011",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on phase_noise_10k @ 2.4 GHz: ST-A mean -111.035 vs ST-B mean -110.550 (delta -0.485, p=0.0007).",
+        "metric_name": "phase_noise_10k",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 2.4,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -0.485,
+        "threshold": 0.6,
+        "p_value": 0.00066,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      },
+      {
+        "fact_id": "E-012",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on harmonic_h2 @ 2.4 GHz: ST-A mean -40.223 vs ST-B mean -40.045 (delta -0.178, p=0.0010).",
+        "metric_name": "harmonic_h2",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 2.4,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -0.178,
+        "threshold": 1.0,
+        "p_value": 0.00099,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      }
+    ],
+    "failed_tests": [],
+    "affected_stations": [],
+    "has_golden_data": true,
+    "has_valid_cal": true,
+    "total_measurements": 1215,
+    "execution_time_ms": 2.4
+  },
+  "rule_evaluation": {
+    "case_id": "DEV_014",
+    "recommended_category": "INSTRUMENT_CALIBRATION",
+    "recommended_side": "MEASUREMENT_SYSTEM",
+    "status": "PLAN_READY_FOR_REVIEW",
+    "confidence": 0.8,
+    "fired_rules": [
+      {
+        "rule_id": "R-GLD-001",
+        "name": "Isolated Station Golden Shift",
+        "description": "Golden standard deviation detected on a single test station.",
+        "target_category": "STATION_CONFIGURATION",
+        "target_side": "MEASUREMENT_SYSTEM",
+        "weight": 4.0,
+        "matched_fact_ids": [
+          "E-002",
+          "E-003"
+        ]
+      },
+      {
+        "rule_id": "R-CAL-001",
+        "name": "Instrument Calibration Expired",
+        "description": "Station instrument calibration is overdue by more than 30 days.",
+        "target_category": "INSTRUMENT_CALIBRATION",
+        "target_side": "MEASUREMENT_SYSTEM",
+        "weight": 5.0,
+        "matched_fact_ids": [
+          "E-001"
+        ]
+      }
+    ],
+    "supporting_fact_ids": [
+      "E-001"
+    ],
+    "suggested_action": "Remove station from active line. Perform comprehensive instrument calibration and verify against certified reference standards.",
+    "suggested_kb_prefix": "MAN-7",
+    "execution_time_ms": 0.251
+  },
+  "retrieval": {
+    "case_id": "DEV_014",
+    "query_text": "INSTRUMENT CALIBRATION Remove station from active line. Perform comprehensive instrument calibration and verify against certified reference standards. Station ST-B calibration overdue by 40 days (due 2026-09-01). Station ST-B golden reference check failed on lo_leakage @ 2.4 GHz: mean -49.507 dBm deviates by +2.493 dBm (tol +/-0.50). Station ST-B golden reference check failed on phase_noise_10k @ 2.4 GHz: mean -109.440 dBc/Hz deviates by +0.560 dBc/Hz (tol +/-0.30). Significant station delta on lo_leakage @ 2.4 GHz: ST-A mean -52.516 vs ST-B mean -50.218 (delta -2.298, p=0.0000).",
+    "primary_doc": {
+      "doc_id": "MAN-701",
+      "prefix": "MAN-7",
+      "title": "MAN-701: RF Instrumentation Metrology, Calibration Expiry, and Reference Drift",
+      "category": "INSTRUMENT_CALIBRATION",
+      "target_side": "MEASUREMENT_SYSTEM",
+      "score": 134.065,
+      "retrieval_method": "HYBRID",
+      "action_items": [
+        "1. **Immediate Station Tag-Out**: Tag-out the expired test station from active production lines.",
+        "2. **Metrology Recertification**: Transfer the instrument to the site metrology laboratory for full annual calibration against certified standards.",
+        "3. **Reference Verification Check**: Following return from metrology, perform a certified golden reference check across full frequency bands.",
+        "4. **Update Station Ledger**: Record new calibration dates and certificates in the `station_history.csv` ledger before returning to service."
+      ],
+      "excerpt": "- **Expired Calibration Interval**: Maintenance ledger indicates station instrument calibration is overdue by more than 30 days. - **Multi-Parameter Measurement Shift**: Correlated drift observed across independent measurement domains (e.g., simultaneous shifts in insertion loss, phase noise, and power calibration). - **Station-Specific Drift Pattern**: Discrepancies persist across all DUTs run...",
+      "file_path": "data/kb/MAN-701_instrument_calibration.md"
+    },
+    "secondary_docs": [
+      {
+        "doc_id": "MAN-401",
+        "prefix": "MAN-4",
+        "title": "MAN-401: Station Configuration and Cable Loss Compensation Diagnostics",
+        "category": "STATION_CONFIGURATION",
+        "target_side": "MEASUREMENT_SYSTEM",
+        "score": 29.425,
+        "retrieval_method": "BM25_LEXICAL",
+        "action_items": [
+          "1. **Immediate Line Halt**: Immediately quarantine and halt the suspect station to prevent false DUT rejections.",
+          "2. **Audit Configuration Delta**: Review recent configuration version commits, audit station cable loss compensation, and inspect `cable_loss_compensation_table` entries against the golden calibration ledger.",
+          "3. **Reference Path Verification**: Inspect the physical reference path, RF jumper cables, and torque all SMA/3.5mm connectors to 8 in-lbs (0.9 N-m).",
+          "4. **Golden Re-characterization**: Re-run the golden reference standard across all sweeps. Verify measured insertion loss agrees with nominal reference values to within +/-0.30 dB.",
+          "5. **Configuration Baseline Restoration**: Restore the last verified baseline configuration table before releasing the station to production."
+        ],
+        "excerpt": "- **Golden Standard Deviation**: The golden reference verification unit fails insertion loss limits exclusively on the modified test station (e.g., ST-A), while passing within normal tolerance on sister stations (e.g., ST-B). - **Broadband Uniform Attenuation**: Measurement deltas across multi-gigahertz frequency sweeps show uniform or frequency-proportional negative shifts (e.g., -0.8 dB to -2.4...",
+        "file_path": "data/kb/MAN-401_station_configuration.md"
+      },
+      {
+        "doc_id": "MAN-901",
+        "prefix": "MAN-9",
+        "title": "MAN-901: Inconclusive Evidence Triage and Missing Baseline Protocol",
+        "category": "INSUFFICIENT_EVIDENCE",
+        "target_side": "UNDETERMINED",
+        "score": 13.028,
+        "retrieval_method": "BM25_LEXICAL",
+        "action_items": [
+          "1. **Halt Automated Disposition**: Do not scrap the DUT and do not disassemble the test station.",
+          "2. **Execute Golden Verification Campaign**: Immediately insert and measure a verified golden reference standard on the station across all frequency points.",
+          "3. **Audit Station Configuration and History**: Audit station calibration records, verify station configuration revision status, and manually record missing calibration dates into the tracking system.",
+          "4. **Multi-Sweep Repeat Test**: Perform a full 5-sweep repeat test of the target unit across both stations to establish statistical significance.",
+          "5. **Re-triage Package**: Re-submit the completed test package through TestTrace Guard once baseline data is restored."
+        ],
+        "excerpt": "- **Missing Golden Reference Baseline**: The measurement package contains zero golden unit verification runs to establish station ground truth. - **Missing Maintenance Ledger Records**: Calibration due dates or last reference check timestamps are blank in `station_history.csv`. - **Marginal Single-Sweep Violation**: A parameter slightly exceeds limits on only 1 of multiple repeated sweeps, while...",
+        "file_path": "data/kb/MAN-901_ambiguity_data_gaps.md"
+      }
+    ],
+    "formatted_context": "=== RETRIEVED STANDARD OPERATING PROCEDURE (PRIMARY AUDIT REFERENCE) ===\nManual ID: MAN-701 (MAN-701: RF Instrumentation Metrology, Calibration Expiry, and Reference Drift)\nCategory: INSTRUMENT_CALIBRATION | Architectural Domain: MEASUREMENT_SYSTEM\nSource Specification: data/kb/MAN-701_instrument_calibration.md\n\nMandatory Corrective Action Protocol:\n  1. **Immediate Station Tag-Out**: Tag-out the expired test station from active production lines.\n  2. **Metrology Recertification**: Transfer the instrument to the site metrology laboratory for full annual calibration against certified standards.\n  3. **Reference Verification Check**: Following return from metrology, perform a certified golden reference check across full frequency bands.\n  4. **Update Station Ledger**: Record new calibration dates and certificates in the `station_history.csv` ledger before returning to service.\n\nDiagnostic Signatures & Root Cause Context:\n  - **Expired Calibration Interval**: Maintenance ledger indicates station instrument calibration is overdue by more than 30 days. - **Multi-Parameter Measurement Shift**: Correlated drift observed across independent measurement domains (e.g., simultaneous shifts in insertion loss, phase noise, and power calibration). - **Station-Specific Drift Pattern**: Discrepancies persist across all DUTs run...\n\n=== SUPPLEMENTARY CROSS-REFERENCE MANUALS ===\n- MAN-401: MAN-401: Station Configuration and Cable Loss Compensation Diagnostics (Category: STATION_CONFIGURATION)\n- MAN-901: MAN-901: Inconclusive Evidence Triage and Missing Baseline Protocol (Category: INSUFFICIENT_EVIDENCE)",
+    "execution_time_ms": 0.386
+  },
+  "report": {
+    "case_id": "DEV_014",
+    "category": "INSTRUMENT_CALIBRATION",
+    "target_side": "MEASUREMENT_SYSTEM",
+    "status": "PLAN_READY_FOR_REVIEW",
+    "confidence": 0.8,
+    "primary_kb_doc": "MAN-701",
+    "root_cause_summary": "Station instrumentation calibration interval is overdue, producing systematic measurement drift across multiple parametric tests.",
+    "supporting_fact_ids": [
+      "E-001"
+    ],
+    "recommended_actions": [
+      "1. **Immediate Station Tag-Out**: Tag-out the expired test station from active production lines.",
+      "2. **Metrology Recertification**: Transfer the instrument to the site metrology laboratory for full annual calibration against certified standards.",
+      "3. **Reference Verification Check**: Following return from metrology, perform a certified golden reference check across full frequency bands.",
+      "4. **Update Station Ledger**: Record new calibration dates and certificates in the `station_history.csv` ledger before returning to service."
+    ],
+    "preventative_actions": [
+      "Enforce automated pre-flight golden standard checks at start of each shift.",
+      "Integrate automated configuration change audit logging with continuous limit tracking."
+    ],
+    "validator_verdict": "PASS",
+    "discrepancies": [],
+    "execution_time_ms": 0.0
+  },
+  "total_execution_time_ms": 24.64,
+  "audit_file_path": "data/audit/DEV_014_RUN-483594B6_2026-10-13_21-35-28.json"
+}

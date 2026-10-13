@@ -21,7 +21,7 @@ This standard provides instructions for isolating intrinsic device-under-test (D
 3. Defective internal decoupling capacitors causing ground bounce at RF frequencies.
 
 ## 4. Mandatory Corrective Action Protocol
-1. **DUT Quarantine**: Quarantine the failing device immediately. Do not adjust test station configuration or test limits.
+1. **DUT Quarantine**: Quarantine the failing device immediately to inspect for internal LO leakage defects. Do not adjust test station configuration or test limits.
 2. **Cross-Station Replication**: Confirm identical failure behavior on a secondary calibrated station to rule out fixture artifacts.
 3. **Physical Shield Inspection**: Route the quarantined DUT to failure analysis (FA). Inspect RF shielding cans, solder joints, and ground vias using X-ray imaging.
-4. **Internal Isolation Audit**: Measure radiated emissions using an RF near-field sniffer probe to locate the precise source of LO leakage.
+4. **Internal Isolation Audit**: Measure radiated emissions using an RF near-field sniffer probe to locate the precise source of internal isolation breakdown and LO leakage.

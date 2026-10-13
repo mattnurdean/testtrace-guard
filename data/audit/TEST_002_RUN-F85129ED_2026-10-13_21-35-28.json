@@ -1,0 +1,278 @@
+{
+  "run_id": "RUN-F85129ED",
+  "case_id": "TEST_002",
+  "timestamp": "2026-10-13T21:35:28Z",
+  "mode": "mock",
+  "analytics": {
+    "case_id": "TEST_002",
+    "facts": [
+      {
+        "fact_id": "E-001",
+        "category": "DUT_SPEC_VIOLATION",
+        "description": "Unit DUT_017 failed limit on lo_leakage @ 2.4 GHz on ST-A: -33.676 dBm (limit -40.0, delta +6.324).",
+        "metric_name": "lo_leakage",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 2.4,
+        "measured_value": -33.676,
+        "reference_value": -40.0,
+        "delta": 6.324,
+        "threshold": 0.5,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:run_id=RUN_00553"
+      },
+      {
+        "fact_id": "E-002",
+        "category": "DUT_SPEC_VIOLATION",
+        "description": "Unit DUT_017 failed limit on lo_leakage @ 2.4 GHz on ST-A: -34.002 dBm (limit -40.0, delta +5.998).",
+        "metric_name": "lo_leakage",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 2.4,
+        "measured_value": -34.002,
+        "reference_value": -40.0,
+        "delta": 5.998,
+        "threshold": 0.5,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:run_id=RUN_00568"
+      },
+      {
+        "fact_id": "E-003",
+        "category": "DUT_SPEC_VIOLATION",
+        "description": "Unit DUT_017 failed limit on lo_leakage @ 2.4 GHz on ST-A: -33.936 dBm (limit -40.0, delta +6.064).",
+        "metric_name": "lo_leakage",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 2.4,
+        "measured_value": -33.936,
+        "reference_value": -40.0,
+        "delta": 6.064,
+        "threshold": 0.5,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:run_id=RUN_00583"
+      },
+      {
+        "fact_id": "E-004",
+        "category": "DUT_SPEC_VIOLATION",
+        "description": "Unit DUT_017 failed limit on lo_leakage @ 2.4 GHz on ST-B: -33.979 dBm (limit -40.0, delta +6.021).",
+        "metric_name": "lo_leakage",
+        "station_id": "ST-B",
+        "unit_id": "DUT_017",
+        "freq_ghz": 2.4,
+        "measured_value": -33.979,
+        "reference_value": -40.0,
+        "delta": 6.021,
+        "threshold": 0.5,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:run_id=RUN_00598"
+      },
+      {
+        "fact_id": "E-005",
+        "category": "DUT_SPEC_VIOLATION",
+        "description": "Unit DUT_017 failed limit on lo_leakage @ 2.4 GHz on ST-B: -34.030 dBm (limit -40.0, delta +5.970).",
+        "metric_name": "lo_leakage",
+        "station_id": "ST-B",
+        "unit_id": "DUT_017",
+        "freq_ghz": 2.4,
+        "measured_value": -34.03,
+        "reference_value": -40.0,
+        "delta": 5.97,
+        "threshold": 0.5,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:run_id=RUN_00613"
+      },
+      {
+        "fact_id": "E-006",
+        "category": "DUT_SPEC_VIOLATION",
+        "description": "Unit DUT_017 failed limit on lo_leakage @ 2.4 GHz on ST-B: -33.528 dBm (limit -40.0, delta +6.472).",
+        "metric_name": "lo_leakage",
+        "station_id": "ST-B",
+        "unit_id": "DUT_017",
+        "freq_ghz": 2.4,
+        "measured_value": -33.528,
+        "reference_value": -40.0,
+        "delta": 6.472,
+        "threshold": 0.5,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:run_id=RUN_00628"
+      },
+      {
+        "fact_id": "E-007",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on insertion_loss @ 6.0 GHz: ST-A mean -3.042 vs ST-B mean -2.992 (delta -0.051, p=0.0091).",
+        "metric_name": "insertion_loss",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 6.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -0.051,
+        "threshold": 0.2,
+        "p_value": 0.00909,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      },
+      {
+        "fact_id": "E-008",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on return_loss @ 2.0 GHz: ST-A mean -19.338 vs ST-B mean -19.226 (delta -0.112, p=0.0033).",
+        "metric_name": "return_loss",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 2.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -0.112,
+        "threshold": 1.0,
+        "p_value": 0.00332,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      }
+    ],
+    "failed_tests": [
+      "lo_leakage"
+    ],
+    "affected_stations": [
+      "ST-A",
+      "ST-B"
+    ],
+    "has_golden_data": true,
+    "has_valid_cal": true,
+    "total_measurements": 1215,
+    "execution_time_ms": 2.69
+  },
+  "rule_evaluation": {
+    "case_id": "TEST_002",
+    "recommended_category": "DUT_DEFECT",
+    "recommended_side": "DUT",
+    "status": "PLAN_READY_FOR_REVIEW",
+    "confidence": 0.96,
+    "fired_rules": [
+      {
+        "rule_id": "R-DUT-001",
+        "name": "Cross-Station DUT Defect",
+        "description": "Target unit fails specification limits across multiple stations while golden units pass.",
+        "target_category": "DUT_DEFECT",
+        "target_side": "DUT",
+        "weight": 5.0,
+        "matched_fact_ids": [
+          "E-001",
+          "E-002",
+          "E-003",
+          "E-004",
+          "E-005",
+          "E-006"
+        ]
+      }
+    ],
+    "supporting_fact_ids": [
+      "E-001",
+      "E-002",
+      "E-003",
+      "E-004",
+      "E-005",
+      "E-006"
+    ],
+    "suggested_action": "Quarantine unit for physical failure analysis. Inspect RF shielding, internal isolation, and active component solder joints.",
+    "suggested_kb_prefix": "MAN-6",
+    "execution_time_ms": 0.313
+  },
+  "retrieval": {
+    "case_id": "TEST_002",
+    "query_text": "DUT DEFECT Quarantine unit for physical failure analysis. Inspect RF shielding, internal isolation, and active component solder joints. lo leakage Unit DUT_017 failed limit on lo_leakage @ 2.4 GHz on ST-A: -33.676 dBm (limit -40.0, delta +6.324). Unit DUT_017 failed limit on lo_leakage @ 2.4 GHz on ST-A: -34.002 dBm (limit -40.0, delta +5.998). Unit DUT_017 failed limit on lo_leakage @ 2.4 GHz on ST-A: -33.936 dBm (limit -40.0, delta +6.064). Unit DUT_017 failed limit on lo_leakage @ 2.4 GHz on ST-B: -33.979 dBm (limit -40.0, delta +6.021). Unit DUT_017 failed limit on lo_leakage @ 2.4 GHz on ST-B: -34.030 dBm (limit -40.0, delta +5.970). Unit DUT_017 failed limit on lo_leakage @ 2.4 GHz on ST-B: -33.528 dBm (limit -40.0, delta +6.472). ST-A ST-B",
+    "primary_doc": {
+      "doc_id": "MAN-601",
+      "prefix": "MAN-6",
+      "title": "MAN-601: DUT Internal RF Defect Isolation and Shielding Quarantine",
+      "category": "DUT_DEFECT",
+      "target_side": "DUT",
+      "score": 166.753,
+      "retrieval_method": "HYBRID",
+      "action_items": [
+        "1. **DUT Quarantine**: Quarantine the failing device immediately to inspect for internal LO leakage defects. Do not adjust test station configuration or test limits.",
+        "2. **Cross-Station Replication**: Confirm identical failure behavior on a secondary calibrated station to rule out fixture artifacts.",
+        "3. **Physical Shield Inspection**: Route the quarantined DUT to failure analysis (FA). Inspect RF shielding cans, solder joints, and ground vias using X-ray imaging.",
+        "4. **Internal Isolation Audit**: Measure radiated emissions using an RF near-field sniffer probe to locate the precise source of internal isolation breakdown and LO leakage."
+      ],
+      "excerpt": "- **Multi-Station Spec Failure**: The target DUT fails specification limits identically on Station A and Station B. - **Healthy Golden Verification**: Golden reference standards pass with zero deviations on all test stations, confirming the measurement system is healthy. - **Specific Defect Fingerprint**: Excessive LO leakage (e.g., measured $-34.0\\text{ dBm}$ against a $-40.0\\text{ dBm}$ upper...",
+      "file_path": "data/kb/MAN-601_dut_rf_defects.md"
+    },
+    "secondary_docs": [
+      {
+        "doc_id": "MAN-801",
+        "prefix": "MAN-8",
+        "title": "MAN-801: Product Hardware Revision and Test Limit Matrix Synchronization",
+        "category": "SPEC_OR_REVISION_MISMATCH",
+        "target_side": "SPECIFICATION",
+        "score": 34.58,
+        "retrieval_method": "BM25_LEXICAL",
+        "action_items": [
+          "1. **Verify Unit Hardware Revision**: Inspect physical serial number and QR barcode to establish true product revision status.",
+          "2. **Audit Limits Version**: Review `limits.csv` against current Engineering Change Notices (ECN).",
+          "3. **Align Test Limit Matrix**: Load corresponding limit set for the target product revision (e.g., activate `LIM_V2.0` for `REV_B`).",
+          "4. **Re-execute Sequence**: Re-run testing under matched limits to confirm compliant parametric performance."
+        ],
+        "excerpt": "- **Controlled Parametric Shift**: The target device exhibits deliberate engineering design differences (e.g., lower insertion loss nominal of $-1.40\\text{ dB}$) that violate tighter legacy limits (e.g., upper limit $-2.00\\text{ dB}$). - **Healthy Repeatability and Golden Runs**: Golden reference units pass with high precision; multi-station runs on the target DUT are completely repeatable. -...",
+        "file_path": "data/kb/MAN-801_revision_limits.md"
+      },
+      {
+        "doc_id": "MAN-401",
+        "prefix": "MAN-4",
+        "title": "MAN-401: Station Configuration and Cable Loss Compensation Diagnostics",
+        "category": "STATION_CONFIGURATION",
+        "target_side": "MEASUREMENT_SYSTEM",
+        "score": 27.068,
+        "retrieval_method": "BM25_LEXICAL",
+        "action_items": [
+          "1. **Immediate Line Halt**: Immediately quarantine and halt the suspect station to prevent false DUT rejections.",
+          "2. **Audit Configuration Delta**: Review recent configuration version commits, audit station cable loss compensation, and inspect `cable_loss_compensation_table` entries against the golden calibration ledger.",
+          "3. **Reference Path Verification**: Inspect the physical reference path, RF jumper cables, and torque all SMA/3.5mm connectors to 8 in-lbs (0.9 N-m).",
+          "4. **Golden Re-characterization**: Re-run the golden reference standard across all sweeps. Verify measured insertion loss agrees with nominal reference values to within +/-0.30 dB.",
+          "5. **Configuration Baseline Restoration**: Restore the last verified baseline configuration table before releasing the station to production."
+        ],
+        "excerpt": "- **Golden Standard Deviation**: The golden reference verification unit fails insertion loss limits exclusively on the modified test station (e.g., ST-A), while passing within normal tolerance on sister stations (e.g., ST-B). - **Broadband Uniform Attenuation**: Measurement deltas across multi-gigahertz frequency sweeps show uniform or frequency-proportional negative shifts (e.g., -0.8 dB to -2.4...",
+        "file_path": "data/kb/MAN-401_station_configuration.md"
+      }
+    ],
+    "formatted_context": "=== RETRIEVED STANDARD OPERATING PROCEDURE (PRIMARY AUDIT REFERENCE) ===\nManual ID: MAN-601 (MAN-601: DUT Internal RF Defect Isolation and Shielding Quarantine)\nCategory: DUT_DEFECT | Architectural Domain: DUT\nSource Specification: data/kb/MAN-601_dut_rf_defects.md\n\nMandatory Corrective Action Protocol:\n  1. **DUT Quarantine**: Quarantine the failing device immediately to inspect for internal LO leakage defects. Do not adjust test station configuration or test limits.\n  2. **Cross-Station Replication**: Confirm identical failure behavior on a secondary calibrated station to rule out fixture artifacts.\n  3. **Physical Shield Inspection**: Route the quarantined DUT to failure analysis (FA). Inspect RF shielding cans, solder joints, and ground vias using X-ray imaging.\n  4. **Internal Isolation Audit**: Measure radiated emissions using an RF near-field sniffer probe to locate the precise source of internal isolation breakdown and LO leakage.\n\nDiagnostic Signatures & Root Cause Context:\n  - **Multi-Station Spec Failure**: The target DUT fails specification limits identically on Station A and Station B. - **Healthy Golden Verification**: Golden reference standards pass with zero deviations on all test stations, confirming the measurement system is healthy. - **Specific Defect Fingerprint**: Excessive LO leakage (e.g., measured $-34.0\\text{ dBm}$ against a $-40.0\\text{ dBm}$ upper...\n\n=== SUPPLEMENTARY CROSS-REFERENCE MANUALS ===\n- MAN-801: MAN-801: Product Hardware Revision and Test Limit Matrix Synchronization (Category: SPEC_OR_REVISION_MISMATCH)\n- MAN-401: MAN-401: Station Configuration and Cable Loss Compensation Diagnostics (Category: STATION_CONFIGURATION)",
+    "execution_time_ms": 0.493
+  },
+  "report": {
+    "case_id": "TEST_002",
+    "category": "DUT_DEFECT",
+    "target_side": "DUT",
+    "status": "PLAN_READY_FOR_REVIEW",
+    "confidence": 0.96,
+    "primary_kb_doc": "MAN-601",
+    "root_cause_summary": "Target unit DUT_017 consistently violated RF specification limits across multiple independent test stations (ST-A and ST-B) while golden verification units passed, isolating the root cause to intrinsic DUT hardware failure.",
+    "supporting_fact_ids": [
+      "E-001",
+      "E-002",
+      "E-003",
+      "E-004",
+      "E-005",
+      "E-006"
+    ],
+    "recommended_actions": [
+      "1. **DUT Quarantine**: Quarantine the failing device immediately to inspect for internal LO leakage defects. Do not adjust test station configuration or test limits.",
+      "2. **Cross-Station Replication**: Confirm identical failure behavior on a secondary calibrated station to rule out fixture artifacts.",
+      "3. **Physical Shield Inspection**: Route the quarantined DUT to failure analysis (FA). Inspect RF shielding cans, solder joints, and ground vias using X-ray imaging.",
+      "4. **Internal Isolation Audit**: Measure radiated emissions using an RF near-field sniffer probe to locate the precise source of internal isolation breakdown and LO leakage."
+    ],
+    "preventative_actions": [
+      "Enforce automated pre-flight golden standard checks at start of each shift.",
+      "Integrate automated configuration change audit logging with continuous limit tracking."
+    ],
+    "validator_verdict": "PASS",
+    "discrepancies": [],
+    "execution_time_ms": 0.0
+  },
+  "total_execution_time_ms": 26.65,
+  "audit_file_path": "data/audit/TEST_002_RUN-F85129ED_2026-10-13_21-35-28.json"
+}

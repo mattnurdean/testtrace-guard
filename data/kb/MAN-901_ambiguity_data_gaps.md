@@ -24,6 +24,6 @@ This manual establishes the handling protocol when test data packages exhibit in
 ## 4. Mandatory Corrective Action Protocol
 1. **Halt Automated Disposition**: Do not scrap the DUT and do not disassemble the test station.
 2. **Execute Golden Verification Campaign**: Immediately insert and measure a verified golden reference standard on the station across all frequency points.
-3. **Inspect Maintenance History**: Audit station calibration records and manually enter missing calibration dates into the tracking system.
-4. **Multi-Sweep Repeat Test**: Perform a full 5-sweep re-test of the target unit across both stations to establish statistical significance.
+3. **Audit Station Configuration and History**: Audit station calibration records, verify station configuration revision status, and manually record missing calibration dates into the tracking system.
+4. **Multi-Sweep Repeat Test**: Perform a full 5-sweep repeat test of the target unit across both stations to establish statistical significance.
 5. **Re-triage Package**: Re-submit the completed test package through TestTrace Guard once baseline data is restored.

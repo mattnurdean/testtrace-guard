@@ -114,8 +114,8 @@ def generate_mock_report_data(
             f"Triage status set to NEEDS_MORE_DATA pending verification sweep."
         )
 
-    # Extract actions from retrieved document
-    actions = list(doc.action_items[:3]) if doc.action_items else [rule_res.suggested_action]
+    # Pass all action items from the retrieved standard operating procedure
+    actions = list(doc.action_items) if doc.action_items else [rule_res.suggested_action]
     preventative = [
         "Enforce automated pre-flight golden standard checks at start of each shift.",
         "Integrate automated configuration change audit logging with continuous limit tracking.",
@@ -161,7 +161,6 @@ def generate_report(
         sys_prompt = build_system_prompt()
         user_prompt = build_user_prompt(analytics, rule_res, retrieval)
 
-        raw_json_str = ""
         for attempt in range(2):
             try:
                 completion = client.chat.completions.create(
@@ -174,7 +173,6 @@ def generate_report(
                     max_tokens=800,
                 )
                 raw_json_str = completion.choices[0].message.content or ""
-                # Strip markdown fences if emitted
                 cleaned = raw_json_str.strip()
                 if cleaned.startswith("```json"):
                     cleaned = cleaned[7:]
@@ -192,12 +190,10 @@ def generate_report(
                     logger.error("vLLM reasoning failed; reverting to mock deterministic synthesizer.")
                     raw_data = generate_mock_report_data(analytics, rule_res, retrieval)
     else:
-        # Default deterministic mock mode
         raw_data = generate_mock_report_data(analytics, rule_res, retrieval)
 
     elapsed_ms = (time.perf_counter() - start_time) * 1000.0
     raw_data["execution_time_ms"] = round(elapsed_ms, 2)
 
-    # Pass through deterministic guardrail validator
     val_res = validate_and_sanitize_report(raw_data, analytics, rule_res, retrieval)
     return val_res.sanitized_report

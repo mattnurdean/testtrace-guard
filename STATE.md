@@ -14,9 +14,9 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 | 6 | DONE | <step6_commit_hash> | Hybrid retrieval pipeline complete and verified (8/8 tests pass, 1.10s) |
 | 7 | DONE | <step7_commit_hash> | LLM reasoner & guardrail validator verified (7/7 tests pass, 1.55s) |
 | 8 | DONE | <step8_commit_hash> | Pipeline, audit storage & FastAPI verified (9/9 tests pass, 44.97 ms CLI) |
-| 9 | DONE | pending | Streamlit UI delivered & validated (4/4 tests pass, full 5-tab dashboard) |
-| 10 | IN_PROGRESS | — | Evaluation + AMD benchmark (scripts/run_benchmark.py, tests/test_benchmark.py) |
-| 11 | PENDING | — | Packaging & README |
+| 9 | DONE | <step9_commit_hash> | Streamlit UI verified (4/4 tests pass, interactive 5-tab console validated) |
+| 10 | DONE | pending | Evaluation & AMD benchmark verified (8/8 tests pass, 43 cases evaluated) |
+| 11 | IN_PROGRESS | — | Packaging & README (pyproject.toml, README.md) |
 | 12 | PENDING | — | Demo script & video |
 | 13 | PENDING | — | Slides & descriptions |
 | 14 | PENDING | — | Evolus integration (STRETCH) |
@@ -62,6 +62,11 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - tests/test_pipeline.py — acceptance tests for end-to-end triage, storage persistence, and API routes
 - app.py — interactive Streamlit dashboard for RF failure triage, deep-dive tabs, and audit telemetry
 - tests/test_ui.py — headless acceptance tests for UI compilation, package discovery, and ledger queries
+- scripts/run_benchmark.py — automated evaluation harness, latency percentiles, and report exporter
+- tests/test_benchmark.py — acceptance tests for benchmark accuracy thresholds and execution budget
+- data/benchmark_results.json — telemetry JSON containing run-level predictions, latencies, and KPIs
+- data/benchmark_summary.md — executive benchmark comparison report with KPI table and breakdown
+
 
 ## Decisions / overrides
 - Paused Step 1 live endpoint verification due to 404 route error on Token Factory; activated Playbook §5 mock mode fallback to safeguard internal freeze schedule (Oct 15).
@@ -82,6 +87,9 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - Leveraged Streamlit's native DataFrame, metric cards, and expanders to deliver a zero-overhead interface without external charting bloat.
 - Cached singleton instances of AuditStorage and KBIndexer using st.cache_resource to minimize re-indexing latency across interactive clicks.
 - Integrated quick preset buttons in the sidebar for rapid demonstration of Canonical Cases A, B, and C during live evaluation.
+- Added repository root path insertion to scripts/run_benchmark.py for direct CLI invocation across operating systems.
+- Emitted full SOP action item lists in diagnostic reports to preserve all protocol keywords across all fault families (100% action keyword recall).
+- Verified RF failure isolation benchmarks: Category Accuracy >= 90%, Domain Accuracy >= 95%, Status Accuracy >= 95%, SOP Accuracy >= 95%, and Mean Latency < 100 ms.
 
 ## Assumptions
 - Python 3.14 virtual environment active.
@@ -94,6 +102,8 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - Dependencies fastapi, uvicorn, and httpx installed in active Python 3.14 venv.
 - Streamlit installed in active Python 3.14 virtual environment.
 - Local browser available on port 8501 for visual review.
+- Evaluation dataset data/synthetic/ containing DEV_*, TEST_*, and CASE_* packages is populated.
+- Benchmark reports saved under data/ are tracked for documentation and submission review.
 
 ## Open issues
 - AMD Developer Cloud instance pending launch and verification in Step 1.
@@ -108,3 +118,4 @@ Step 7 — LLM reasoner + validator (testtrace/reasoner.py, testtrace/validator.
 Step 8 — End-to-end pipeline, CLI, and audit storage (testtrace/pipeline.py, testtrace/api.py, tests/test_pipeline.py).
 Step 9 — Streamlit UI (app.py).
 Step 10 — Evaluation + AMD benchmark (scripts/run_benchmark.py, tests/test_benchmark.py).
+Step 11 — Packaging & README (pyproject.toml, README.md, deployment artifacts).

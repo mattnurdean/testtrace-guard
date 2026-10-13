@@ -29,7 +29,6 @@ def validate_and_sanitize_report(
     discrepancies: list[str] = []
     overrides: list[str] = []
 
-    # 1. Cast to DiagnosticReport or construct robust fallback if structure is malformed
     if isinstance(raw_input, DiagnosticReport):
         report_dict = raw_input.model_dump()
     elif isinstance(raw_input, dict):
@@ -38,7 +37,6 @@ def validate_and_sanitize_report(
         discrepancies.append("MALFORMED_INPUT: Input is neither dict nor DiagnosticReport; using deterministic fallback.")
         report_dict = {}
 
-    # Safe field extractions with fallbacks
     case_id = report_dict.get("case_id") or analytics.case_id
     category = report_dict.get("category") or rule_res.recommended_category
     target_side = report_dict.get("target_side") or rule_res.recommended_side
@@ -47,10 +45,10 @@ def validate_and_sanitize_report(
     primary_kb_doc = report_dict.get("primary_kb_doc") or retrieval.primary_doc.doc_id
     root_cause = report_dict.get("root_cause_summary") or f"Identified issue within category {category}."
     supporting_facts = list(report_dict.get("supporting_fact_ids", rule_res.supporting_fact_ids))
-    recommended_actions = list(report_dict.get("recommended_actions") or retrieval.primary_doc.action_items[:3])
+    recommended_actions = list(report_dict.get("recommended_actions") or retrieval.primary_doc.action_items)
     preventative_actions = list(report_dict.get("preventative_actions") or [])
 
-    # 2. Fact Grounding Verification (Hallucination Guard)
+    # 1. Fact Grounding Verification
     valid_fact_ids = {f.fact_id for f in analytics.facts}
     sanitized_fact_ids: list[str] = []
     for fid in supporting_facts:
@@ -60,11 +58,10 @@ def validate_and_sanitize_report(
             discrepancies.append(f"HALLUCINATED_FACT_ID: Removed fact ID '{fid}' not present in deterministic analytics.")
 
     if not sanitized_fact_ids:
-        # Fallback to verified rule facts
         sanitized_fact_ids = [fid for fid in rule_res.supporting_fact_ids if fid in valid_fact_ids]
         discrepancies.append("EMPTY_FACTS: Restored supporting fact IDs from deterministic rule engine.")
 
-    # 3. Category & Side Consistency Check
+    # 2. Category & Side Consistency Check
     if category != rule_res.recommended_category:
         if rule_res.confidence >= 0.80:
             overrides.append(
@@ -77,20 +74,19 @@ def validate_and_sanitize_report(
                 f"CATEGORY_DRIFT: LLM category '{category}' differs from low-confidence rule recommendation '{rule_res.recommended_category}'."
             )
 
-    # Enforce standard architectural domain
     expected_domain = VALID_DOMAINS.get(category, target_side)
     if target_side != expected_domain:
         overrides.append(f"DOMAIN_MISMATCH: Corrected target side from '{target_side}' to standard domain '{expected_domain}'.")
         target_side = expected_domain
 
-    # 4. Standard Operating Procedure Alignment
+    # 3. Standard Operating Procedure Alignment
     if not primary_kb_doc.startswith(retrieval.primary_doc.prefix):
         discrepancies.append(
             f"KB_MISMATCH: Aligning primary KB doc '{primary_kb_doc}' to retrieved reference '{retrieval.primary_doc.doc_id}'."
         )
         primary_kb_doc = retrieval.primary_doc.doc_id
 
-    # 5. Status & Ambiguity Protocol Check
+    # 4. Status & Ambiguity Protocol Check
     if category == "INSUFFICIENT_EVIDENCE" and status != "NEEDS_MORE_DATA":
         overrides.append("STATUS_ENFORCEMENT: Enforcing status 'NEEDS_MORE_DATA' for INSUFFICIENT_EVIDENCE triage.")
         status = "NEEDS_MORE_DATA"
@@ -98,12 +94,11 @@ def validate_and_sanitize_report(
         overrides.append("STATUS_ENFORCEMENT: Setting status 'PLAN_READY_FOR_REVIEW' for definitive triage finding.")
         status = "PLAN_READY_FOR_REVIEW"
 
-    # 6. Action Grounding Check
+    # 5. Action Grounding Check
     if not recommended_actions:
-        recommended_actions = retrieval.primary_doc.action_items[:3] or [rule_res.suggested_action]
+        recommended_actions = retrieval.primary_doc.action_items or [rule_res.suggested_action]
         discrepancies.append("ACTION_RESTORED: Injected mandatory action items from retrieved standard operating procedure.")
 
-    # Determine final validator verdict
     if overrides:
         verdict = "CORRECTED"
     elif discrepancies:
