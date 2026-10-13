@@ -1,4 +1,4 @@
-"""Pydantic v2 schemas for TestTrace Guard data and evidence facts."""
+"""Pydantic v2 schemas for TestTrace Guard data, evidence facts, and triage rules."""
 
 from datetime import datetime
 from typing import Any, Optional
@@ -132,4 +132,27 @@ class AnalyticsResult(BaseModel):
     has_golden_data: bool
     has_valid_cal: bool
     total_measurements: int
+    execution_time_ms: float
+
+
+class RuleMatch(BaseModel):
+    rule_id: str
+    name: str
+    description: str
+    target_category: str
+    target_side: str
+    weight: float
+    matched_fact_ids: list[str] = Field(default_factory=list)
+
+
+class RuleEvaluationResult(BaseModel):
+    case_id: str
+    recommended_category: str
+    recommended_side: str
+    status: str  # "PLAN_READY_FOR_REVIEW" or "NEEDS_MORE_DATA"
+    confidence: float
+    fired_rules: list[RuleMatch]
+    supporting_fact_ids: list[str]
+    suggested_action: str
+    suggested_kb_prefix: str
     execution_time_ms: float

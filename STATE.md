@@ -9,8 +9,8 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 | 1 | PAUSED  | — | Token Factory 404; paused for Discord clarification. Fallback to MOCK mode per Playbook §5 |
 | 2 | DONE    | <paste_step2_commit_hash> | Synthetic dataset generator complete and verified (6/6 tests pass) |
 | 3 | DONE | <step3_commit_hash> | Deterministic analytics engine verified (5/5 tests pass, 0.44s execution) |
-| 4 | IN_PROGRESS | — | Rule engine (testtrace/rules.py) |
-| 5 | PENDING | — | Knowledge base |
+| 4 | DONE | pending | Rule engine complete and verified (7/7 tests pass, <10 ms evaluation) |
+| 5 | IN_PROGRESS | — | Knowledge base (data/kb/ corpus, embeddings/BM25) |
 | 6 | PENDING | — | Retrieval |
 | 7 | PENDING | — | LLM reasoner + validator |
 | 8 | PENDING | — | Pipeline + API + storage |
@@ -27,20 +27,37 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - LICENSE — MIT License
 - README.md — project root outline stub
 - STATE.md — tracking sheet and environment facts
-- scripts/smoke_llm.py — connectivity and TTFT smoke script
-- scripts/json_smoke.py — JSON schema smoke script
+- pytest.ini — pytest root configuration and pythonpath resolver
+- .env.example — AMD Droplet and Token Factory endpoint configuration template
+- scripts/smoke_llm.py — connectivity, TTFT, and throughput smoke test
+- scripts/json_smoke.py — 10-iteration JSON schema compliance test
+- testtrace/__init__.py — package initialization
+- data/synthetic/DATA_DISCLAIMER.md — synthetic data usage and non-confidentiality disclaimer
+- testtrace/datagen.py — deterministic RF test campaign generator (Playbook App. C)
+- tests/test_datagen.py — acceptance tests for synthetic dataset schema, pass rates, and fault physics
+- testtrace/schemas.py — Pydantic v2 schemas for RF measurements, limits, golden ref, evidence facts, and rule outputs
+- testtrace/analytics.py — pure Python deterministic RF analytics and evidence fact emitter
+- tests/test_analytics.py — acceptance tests for canonical case triage facts and sub-500 ms benchmark
+- testtrace/rules.py — deterministic RF failure triage heuristic rule engine
+- tests/test_rules.py — acceptance tests for canonical cases, fault families F1–F5, and <10 ms execution benchmark
 
 ## Decisions / overrides
-- Initialized project tracking per Playbook v1.0 specifications.
-- Paused Step 1 live endpoint verification due to 404 route error; activated Playbook §5 mock mode fallback to safeguard internal freeze schedule (Oct 15).
+- Paused Step 1 live endpoint verification due to 404 route error on Token Factory; activated Playbook §5 mock mode fallback to safeguard internal freeze schedule (Oct 15).
+- Configured pytest.ini with `pythonpath = .` to ensure seamless module resolution across Windows/PowerShell environments.
+- Positioned campaign golden verification runs after configuration change in datagen.py to reflect active station state (E-002: -2.4 dB offset on ST-A).
+- Analytics engine implemented using closed-form Welch's t-test and Gaussian complementary error function (erfc) p-value approximation; zero external network or LLM dependencies.
+- Rule engine prioritizes `INSUFFICIENT_EVIDENCE` / `NEEDS_MORE_DATA` whenever critical golden reference runs or calibration records are absent.
 
 ## Assumptions
-- Python 3.11+ is locally installed and available.
-- Synthetic data generation and deterministic analytics can be built and validated offline.
+- Python 3.14 virtual environment active.
+- Synthetic dataset generated in `data/synthetic/` remains available locally.
+- Development of Steps 2 through 6 continues in mock mode without requiring an active remote AMD GPU.
 
 ## Open issues
 - AMD Developer Cloud instance pending launch and verification in Step 1.
 - Need exact Token Factory API endpoint structure from Discord/organizers.
+
 ## Next step
 Step 1 — AMD vLLM endpoint verification (Gate G0).
 Step 2 — Synthetic data generator (testtrace/datagen.py).
+Step 5 — Knowledge base curation and indexing (data/kb/*.md, testtrace/kb.py).
