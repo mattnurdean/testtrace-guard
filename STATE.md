@@ -13,8 +13,8 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 | 5 | DONE | pending | Knowledge base curated & BM25 engine verified (10/10 tests pass, <1 ms search) |
 | 6 | DONE | pending | Hybrid retrieval pipeline complete and verified (8/8 tests pass, <2 ms retrieval) |
 | 7 | DONE | pending | LLM reasoner & guardrail validator verified (7/7 tests pass, <10 ms mock) |
-| 8 | IN_PROGRESS | — | Pipeline + API + storage (testtrace/pipeline.py, testtrace/api.py) |
-| 9 | PENDING | — | Streamlit UI |
+| 8 | DONE | pending | End-to-end pipeline, audit storage & FastAPI verified (9/9 tests pass, <50 ms) |
+| 9 | IN_PROGRESS | — | Streamlit UI (app.py) |
 | 10 | PENDING | — | Evaluation + AMD benchmark |
 | 11 | PENDING | — | Packaging & README |
 | 12 | PENDING | — | Demo script & video |
@@ -55,6 +55,12 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - testtrace/validator.py — deterministic guardrail validator for fact grounding and category consistency
 - testtrace/reasoner.py — LLM reasoning engine supporting mock and vLLM inference modes with retry logic
 - tests/test_reasoner.py — acceptance tests for diagnostic reporting, hallucination guardrails, and latency
+- testtrace/schemas.py — added PipelineRunResult and AuditRecord models
+- testtrace/storage.py — dual-layer JSON trace and SQLite audit persistence engine
+- testtrace/pipeline.py — end-to-end triage pipeline orchestrator and CLI banner tool
+- testtrace/api.py — FastAPI service exposing triage, package cases, and audit history endpoints
+- tests/test_pipeline.py — acceptance tests for end-to-end triage, storage persistence, and API routes
+
 
 ## Decisions / overrides
 - Paused Step 1 live endpoint verification due to 404 route error on Token Factory; activated Playbook §5 mock mode fallback to safeguard internal freeze schedule (Oct 15).
@@ -70,6 +76,9 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - Implemented dual-mode reasoning: mock mode operates completely offline and deterministically, while vLLM mode routes to OpenAI-compatible endpoints with automated JSON recovery.
 - Guardrail validator automatically strips ungrounded/hallucinated fact IDs and enforces rule engine overrides whenever deterministic rule confidence is >= 0.80.
 - Enforced invariant: INSUFFICIENT_EVIDENCE triage must always map to status NEEDS_MORE_DATA.
+- Dual-layer audit architecture: full pipeline state stored as human-readable JSON files, with SQLite indexing for rapid sub-millisecond querying in API endpoints.
+- FastAPI endpoints utilize application singletons for KB indexing and storage to maximize throughput and eliminate redundant initialization overhead.
+
 
 ## Assumptions
 - Python 3.14 virtual environment active.
@@ -78,6 +87,8 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - Knowledge base markdown documents in data/kb/ remain read-only during search queries.
 - Knowledge base markdown corpus in data/kb/ is indexed and accessible.
 - Synthetic dataset in data/synthetic/ and SOP corpus in data/kb/ remain available locally.
+- Synthetic dataset in data/synthetic/ and SOP corpus in data/kb/ remain available locally.
+- Dependencies fastapi, uvicorn, and httpx installed in active Python 3.14 venv.
 
 ## Open issues
 - AMD Developer Cloud instance pending launch and verification in Step 1.
@@ -90,3 +101,4 @@ Step 5 — Knowledge base curation and indexing (data/kb/*.md, testtrace/kb.py).
 Step 6 — Hybrid retrieval pipeline (testtrace/retrieval.py, tests/test_retrieval.py).
 Step 7 — LLM reasoner + validator (testtrace/reasoner.py, testtrace/validator.py, tests/test_reasoner.py).
 Step 8 — End-to-end pipeline, CLI, and audit storage (testtrace/pipeline.py, testtrace/api.py, tests/test_pipeline.py).
+Step 9 — Streamlit UI (app.py).

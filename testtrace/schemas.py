@@ -1,4 +1,4 @@
-"""Pydantic v2 schemas for TestTrace Guard data, evidence facts, triage rules, retrieval, and diagnostic reports."""
+"""Pydantic v2 schemas for TestTrace Guard data, evidence facts, triage rules, retrieval, reports, and pipeline runs."""
 
 from datetime import datetime
 from typing import Any, Optional
@@ -202,3 +202,30 @@ class ValidationResult(BaseModel):
     sanitized_report: DiagnosticReport
     discrepancies: list[str] = Field(default_factory=list)
     overrides_applied: list[str] = Field(default_factory=list)
+
+
+class PipelineRunResult(BaseModel):
+    run_id: str
+    case_id: str
+    timestamp: str
+    mode: str
+    analytics: AnalyticsResult
+    rule_evaluation: RuleEvaluationResult
+    retrieval: RetrievalResult
+    report: DiagnosticReport
+    total_execution_time_ms: float
+    audit_file_path: Optional[str] = None
+
+
+class AuditRecord(BaseModel):
+    run_id: str
+    case_id: str
+    timestamp: str
+    category: str
+    target_side: str
+    status: str
+    confidence: float
+    primary_kb_doc: str
+    validator_verdict: str
+    total_execution_time_ms: float
+    audit_file_path: str
