@@ -1,0 +1,325 @@
+{
+  "run_id": "RUN-F6EA585E",
+  "case_id": "DEV_008",
+  "timestamp": "2026-10-13T22:16:10Z",
+  "mode": "mock",
+  "analytics": {
+    "case_id": "DEV_008",
+    "facts": [
+      {
+        "fact_id": "E-001",
+        "category": "DUT_SPEC_VIOLATION",
+        "description": "Unit DUT_017 failed limit on insertion_loss @ 4.0 GHz on ST-A: -1.450 dB (limit -2.0, delta +0.550).",
+        "metric_name": "insertion_loss",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 4.0,
+        "measured_value": -1.45,
+        "reference_value": -2.0,
+        "delta": 0.55,
+        "threshold": 0.1,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:run_id=RUN_00544"
+      },
+      {
+        "fact_id": "E-002",
+        "category": "DUT_SPEC_VIOLATION",
+        "description": "Unit DUT_017 failed limit on insertion_loss @ 4.0 GHz on ST-A: -1.636 dB (limit -2.0, delta +0.364).",
+        "metric_name": "insertion_loss",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 4.0,
+        "measured_value": -1.636,
+        "reference_value": -2.0,
+        "delta": 0.364,
+        "threshold": 0.1,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:run_id=RUN_00559"
+      },
+      {
+        "fact_id": "E-003",
+        "category": "DUT_SPEC_VIOLATION",
+        "description": "Unit DUT_017 failed limit on insertion_loss @ 5.0 GHz on ST-A: -1.386 dB (limit -2.0, delta +0.614).",
+        "metric_name": "insertion_loss",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 5.0,
+        "measured_value": -1.386,
+        "reference_value": -2.0,
+        "delta": 0.614,
+        "threshold": 0.1,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:run_id=RUN_00560"
+      },
+      {
+        "fact_id": "E-004",
+        "category": "DUT_SPEC_VIOLATION",
+        "description": "Unit DUT_017 failed limit on insertion_loss @ 4.0 GHz on ST-A: -1.509 dB (limit -2.0, delta +0.491).",
+        "metric_name": "insertion_loss",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 4.0,
+        "measured_value": -1.509,
+        "reference_value": -2.0,
+        "delta": 0.491,
+        "threshold": 0.1,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:run_id=RUN_00574"
+      },
+      {
+        "fact_id": "E-005",
+        "category": "DUT_SPEC_VIOLATION",
+        "description": "Unit DUT_017 failed limit on insertion_loss @ 5.0 GHz on ST-A: -1.905 dB (limit -2.0, delta +0.095).",
+        "metric_name": "insertion_loss",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 5.0,
+        "measured_value": -1.905,
+        "reference_value": -2.0,
+        "delta": 0.095,
+        "threshold": 0.1,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:run_id=RUN_00575"
+      },
+      {
+        "fact_id": "E-006",
+        "category": "REPEATABILITY_VARIANCE",
+        "description": "Fixture contact instability detected on ST-A for insertion_loss @ 4.0 GHz: reconnect shift 1.532 dB with intra-run sigma 0.095.",
+        "metric_name": "insertion_loss",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 4.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": 1.532,
+        "threshold": 0.8,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:unit_id=DUT_017&reconnect_idx=0,1"
+      },
+      {
+        "fact_id": "E-007",
+        "category": "REPEATABILITY_VARIANCE",
+        "description": "Fixture contact instability detected on ST-A for insertion_loss @ 5.0 GHz: reconnect shift 1.217 dB with intra-run sigma 0.625.",
+        "metric_name": "insertion_loss",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 5.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": 1.217,
+        "threshold": 0.8,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:unit_id=DUT_017&reconnect_idx=0,1"
+      },
+      {
+        "fact_id": "E-008",
+        "category": "REPEATABILITY_VARIANCE",
+        "description": "Fixture contact instability detected on ST-A for insertion_loss @ 6.0 GHz: reconnect shift 1.126 dB with intra-run sigma 0.171.",
+        "metric_name": "insertion_loss",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 6.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": 1.126,
+        "threshold": 0.8,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:unit_id=DUT_017&reconnect_idx=0,1"
+      },
+      {
+        "fact_id": "E-009",
+        "category": "REPEATABILITY_VARIANCE",
+        "description": "Fixture contact instability detected on ST-A for return_loss @ 4.0 GHz: reconnect shift 2.009 dB with intra-run sigma 0.862.",
+        "metric_name": "return_loss",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 4.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": 2.009,
+        "threshold": 0.8,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:unit_id=DUT_017&reconnect_idx=0,1"
+      },
+      {
+        "fact_id": "E-010",
+        "category": "REPEATABILITY_VARIANCE",
+        "description": "Fixture contact instability detected on ST-A for return_loss @ 5.0 GHz: reconnect shift 1.272 dB with intra-run sigma 1.230.",
+        "metric_name": "return_loss",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 5.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": 1.272,
+        "threshold": 0.8,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:unit_id=DUT_017&reconnect_idx=0,1"
+      },
+      {
+        "fact_id": "E-011",
+        "category": "REPEATABILITY_VARIANCE",
+        "description": "Fixture contact instability detected on ST-A for return_loss @ 6.0 GHz: reconnect shift 1.297 dB with intra-run sigma 0.680.",
+        "metric_name": "return_loss",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 6.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": 1.297,
+        "threshold": 0.8,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:unit_id=DUT_017&reconnect_idx=0,1"
+      }
+    ],
+    "failed_tests": [
+      "insertion_loss"
+    ],
+    "affected_stations": [
+      "ST-A"
+    ],
+    "has_golden_data": true,
+    "has_valid_cal": true,
+    "total_measurements": 1215,
+    "execution_time_ms": 1.84
+  },
+  "rule_evaluation": {
+    "case_id": "DEV_008",
+    "recommended_category": "FIXTURE_CONTACT",
+    "recommended_side": "MEASUREMENT_SYSTEM",
+    "status": "PLAN_READY_FOR_REVIEW",
+    "confidence": 0.8,
+    "fired_rules": [
+      {
+        "rule_id": "R-FIX-001",
+        "name": "Fixture Contact Instability",
+        "description": "High intra-run repeatability sigma or large reconnect shift detected upon re-seating.",
+        "target_category": "FIXTURE_CONTACT",
+        "target_side": "MEASUREMENT_SYSTEM",
+        "weight": 5.0,
+        "matched_fact_ids": [
+          "E-006",
+          "E-007",
+          "E-008",
+          "E-009",
+          "E-010",
+          "E-011"
+        ]
+      }
+    ],
+    "supporting_fact_ids": [
+      "E-006",
+      "E-007",
+      "E-008",
+      "E-009",
+      "E-010",
+      "E-011"
+    ],
+    "suggested_action": "Inspect fixture RF launch pins and contact interfaces. Verify mechanical alignment, clamping pressure, and repeat test.",
+    "suggested_kb_prefix": "MAN-5",
+    "execution_time_ms": 0.214
+  },
+  "retrieval": {
+    "case_id": "DEV_008",
+    "query_text": "FIXTURE CONTACT Inspect fixture RF launch pins and contact interfaces. Verify mechanical alignment, clamping pressure, and repeat test. insertion loss Unit DUT_017 failed limit on insertion_loss @ 4.0 GHz on ST-A: -1.450 dB (limit -2.0, delta +0.550). Unit DUT_017 failed limit on insertion_loss @ 4.0 GHz on ST-A: -1.636 dB (limit -2.0, delta +0.364). Unit DUT_017 failed limit on insertion_loss @ 5.0 GHz on ST-A: -1.386 dB (limit -2.0, delta +0.614). Unit DUT_017 failed limit on insertion_loss @ 4.0 GHz on ST-A: -1.509 dB (limit -2.0, delta +0.491). Unit DUT_017 failed limit on insertion_loss @ 5.0 GHz on ST-A: -1.905 dB (limit -2.0, delta +0.095). Fixture contact instability detected on ST-A for insertion_loss @ 4.0 GHz: reconnect shift 1.532 dB with intra-run sigma 0.095. Fixture contact instability detected on ST-A for insertion_loss @ 5.0 GHz: reconnect shift 1.217 dB with intra-run sigma 0.625. Fixture contact instability detected on ST-A for insertion_loss @ 6.0 GHz: reconnect shift 1.126 dB with intra-run sigma 0.171. Fixture contact instability detected on ST-A for return_loss @ 4.0 GHz: reconnect shift 2.009 dB with intra-run sigma 0.862. Fixture contact instability detected on ST-A for return_loss @ 5.0 GHz: reconnect shift 1.272 dB with intra-run sigma 1.230. Fixture contact instability detected on ST-A for return_loss @ 6.0 GHz: reconnect shift 1.297 dB with intra-run sigma 0.680. ST-A",
+    "primary_doc": {
+      "doc_id": "MAN-501",
+      "prefix": "MAN-5",
+      "title": "MAN-501: RF Fixture Interface, Launch Pin Wear, and Contact Repeatability",
+      "category": "FIXTURE_CONTACT",
+      "target_side": "MEASUREMENT_SYSTEM",
+      "score": 234.741,
+      "retrieval_method": "HYBRID",
+      "action_items": [
+        "1. **Fixture Cleanliness Inspection**: Inspect fixture RF launch pins and contact interfaces under 20x magnification for debris, bent tips, or flux contamination.",
+        "2. **Alcohol Swab & Decontamination**: Clean probe contacts using electronic-grade isopropyl alcohol (IPA) and lint-free micro-swabs.",
+        "3. **Repeatability Verification**: Perform a 5-cycle re-seat and reconnect repeatability test using a verification unit. Confirm sweep-to-sweep repeatability variance $\\sigma < 0.05\\text{ dB}$.",
+        "4. **Fixture Alignment & Clamping**: Adjust mechanical guides and verify clamping pressure conforms to production mechanical specifications before resuming testing."
+      ],
+      "excerpt": "- **High Intra-Run Repeatability Sigma**: Replicate sweeps without DUT movement demonstrate erratic variance ($\\sigma > 0.30\\text{ dB}$), especially above 4.0 GHz. - **Reconnect Delta Shift**: Disengaging, re-seating, and re-engaging the DUT into the fixture yields large discontinuous measurement shifts ($> 0.80\\text{ dB}$). - **High Return Loss Degradation**: S11 return loss spikes toward 0 dB...",
+      "file_path": "data/kb/MAN-501_fixture_contact.md"
+    },
+    "secondary_docs": [
+      {
+        "doc_id": "MAN-801",
+        "prefix": "MAN-8",
+        "title": "MAN-801: Product Hardware Revision and Test Limit Matrix Synchronization",
+        "category": "SPEC_OR_REVISION_MISMATCH",
+        "target_side": "SPECIFICATION",
+        "score": 50.517,
+        "retrieval_method": "BM25_LEXICAL",
+        "action_items": [
+          "1. **Verify Unit Hardware Revision**: Inspect physical serial number and QR barcode to establish true product revision status.",
+          "2. **Audit Limits Version**: Review `limits.csv` against current Engineering Change Notices (ECN).",
+          "3. **Align Test Limit Matrix**: Load corresponding limit set for the target product revision (e.g., activate `LIM_V2.0` for `REV_B`).",
+          "4. **Re-execute Sequence**: Re-run testing under matched limits to confirm compliant parametric performance."
+        ],
+        "excerpt": "- **Controlled Parametric Shift**: The target device exhibits deliberate engineering design differences (e.g., lower insertion loss nominal of $-1.40\\text{ dB}$) that violate tighter legacy limits (e.g., upper limit $-2.00\\text{ dB}$). - **Healthy Repeatability and Golden Runs**: Golden reference units pass with high precision; multi-station runs on the target DUT are completely repeatable. -...",
+        "file_path": "data/kb/MAN-801_revision_limits.md"
+      },
+      {
+        "doc_id": "MAN-401",
+        "prefix": "MAN-4",
+        "title": "MAN-401: Station Configuration and Cable Loss Compensation Diagnostics",
+        "category": "STATION_CONFIGURATION",
+        "target_side": "MEASUREMENT_SYSTEM",
+        "score": 46.484,
+        "retrieval_method": "BM25_LEXICAL",
+        "action_items": [
+          "1. **Immediate Line Halt**: Immediately quarantine and halt the suspect station to prevent false DUT rejections.",
+          "2. **Audit Configuration Delta**: Review recent configuration version commits, audit station cable loss compensation, and inspect `cable_loss_compensation_table` entries against the golden calibration ledger.",
+          "3. **Reference Path Verification**: Inspect the physical reference path, RF jumper cables, and torque all SMA/3.5mm connectors to 8 in-lbs (0.9 N-m).",
+          "4. **Golden Re-characterization**: Re-run the golden reference standard across all sweeps. Verify measured insertion loss agrees with nominal reference values to within +/-0.30 dB.",
+          "5. **Configuration Baseline Restoration**: Restore the last verified baseline configuration table before releasing the station to production."
+        ],
+        "excerpt": "- **Golden Standard Deviation**: The golden reference verification unit fails insertion loss limits exclusively on the modified test station (e.g., ST-A), while passing within normal tolerance on sister stations (e.g., ST-B). - **Broadband Uniform Attenuation**: Measurement deltas across multi-gigahertz frequency sweeps show uniform or frequency-proportional negative shifts (e.g., -0.8 dB to -2.4...",
+        "file_path": "data/kb/MAN-401_station_configuration.md"
+      }
+    ],
+    "formatted_context": "=== RETRIEVED STANDARD OPERATING PROCEDURE (PRIMARY AUDIT REFERENCE) ===\nManual ID: MAN-501 (MAN-501: RF Fixture Interface, Launch Pin Wear, and Contact Repeatability)\nCategory: FIXTURE_CONTACT | Architectural Domain: MEASUREMENT_SYSTEM\nSource Specification: data/kb/MAN-501_fixture_contact.md\n\nMandatory Corrective Action Protocol:\n  1. **Fixture Cleanliness Inspection**: Inspect fixture RF launch pins and contact interfaces under 20x magnification for debris, bent tips, or flux contamination.\n  2. **Alcohol Swab & Decontamination**: Clean probe contacts using electronic-grade isopropyl alcohol (IPA) and lint-free micro-swabs.\n  3. **Repeatability Verification**: Perform a 5-cycle re-seat and reconnect repeatability test using a verification unit. Confirm sweep-to-sweep repeatability variance $\\sigma < 0.05\\text{ dB}$.\n  4. **Fixture Alignment & Clamping**: Adjust mechanical guides and verify clamping pressure conforms to production mechanical specifications before resuming testing.\n\nDiagnostic Signatures & Root Cause Context:\n  - **High Intra-Run Repeatability Sigma**: Replicate sweeps without DUT movement demonstrate erratic variance ($\\sigma > 0.30\\text{ dB}$), especially above 4.0 GHz. - **Reconnect Delta Shift**: Disengaging, re-seating, and re-engaging the DUT into the fixture yields large discontinuous measurement shifts ($> 0.80\\text{ dB}$). - **High Return Loss Degradation**: S11 return loss spikes toward 0 dB...\n\n=== SUPPLEMENTARY CROSS-REFERENCE MANUALS ===\n- MAN-801: MAN-801: Product Hardware Revision and Test Limit Matrix Synchronization (Category: SPEC_OR_REVISION_MISMATCH)\n- MAN-401: MAN-401: Station Configuration and Cable Loss Compensation Diagnostics (Category: STATION_CONFIGURATION)",
+    "execution_time_ms": 0.57
+  },
+  "report": {
+    "case_id": "DEV_008",
+    "category": "FIXTURE_CONTACT",
+    "target_side": "MEASUREMENT_SYSTEM",
+    "status": "PLAN_READY_FOR_REVIEW",
+    "confidence": 0.8,
+    "primary_kb_doc": "MAN-501",
+    "root_cause_summary": "Large reconnect delta shifts and elevated intra-run repeatability sigma indicate mechanical contact instability or pogo pin interface wear on fixture MAN-501.",
+    "supporting_fact_ids": [
+      "E-006",
+      "E-007",
+      "E-008",
+      "E-009",
+      "E-010",
+      "E-011"
+    ],
+    "recommended_actions": [
+      "1. **Fixture Cleanliness Inspection**: Inspect fixture RF launch pins and contact interfaces under 20x magnification for debris, bent tips, or flux contamination.",
+      "2. **Alcohol Swab & Decontamination**: Clean probe contacts using electronic-grade isopropyl alcohol (IPA) and lint-free micro-swabs.",
+      "3. **Repeatability Verification**: Perform a 5-cycle re-seat and reconnect repeatability test using a verification unit. Confirm sweep-to-sweep repeatability variance $\\sigma < 0.05\\text{ dB}$.",
+      "4. **Fixture Alignment & Clamping**: Adjust mechanical guides and verify clamping pressure conforms to production mechanical specifications before resuming testing."
+    ],
+    "preventative_actions": [
+      "Enforce automated pre-flight golden standard checks at start of each shift.",
+      "Integrate automated configuration change audit logging with continuous limit tracking."
+    ],
+    "validator_verdict": "PASS",
+    "discrepancies": [],
+    "execution_time_ms": 0.0
+  },
+  "total_execution_time_ms": 18.9,
+  "audit_file_path": "data/audit/DEV_008_RUN-F6EA585E_2026-10-13_22-16-10.json"
+}

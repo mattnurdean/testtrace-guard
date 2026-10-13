@@ -1,20 +1,20 @@
 {
-  "timestamp": "2026-10-13T21:36:12Z",
+  "timestamp": "2026-10-13T22:16:12Z",
   "split": "all",
   "inference_mode": "mock",
   "total_cases_evaluated": 43,
-  "total_benchmark_duration_seconds": 2.6,
-  "throughput_cases_per_sec": 16.54,
+  "total_benchmark_duration_seconds": 1.988,
+  "throughput_cases_per_sec": 21.63,
   "category_accuracy": 95.35,
   "domain_accuracy": 95.35,
   "status_accuracy": 95.35,
   "sop_prefix_accuracy": 95.35,
   "action_keyword_recall": 97.21,
-  "latency_mean_ms": 30.51,
-  "latency_p50_ms": 28.68,
-  "latency_p90_ms": 41.68,
-  "latency_p95_ms": 47.77,
-  "latency_p99_ms": 64.18,
+  "latency_mean_ms": 20.91,
+  "latency_p50_ms": 19.41,
+  "latency_p90_ms": 23.19,
+  "latency_p95_ms": 35.09,
+  "latency_p99_ms": 42.62,
   "validator_verdicts": {
     "PASS": 37,
     "CORRECTED": 0,
@@ -73,7 +73,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "PASS",
-      "latency_ms": 64.18
+      "latency_ms": 42.62
     },
     {
       "case_id": "CASE_B",
@@ -95,7 +95,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "PASS",
-      "latency_ms": 41.68
+      "latency_ms": 19.11
     },
     {
       "case_id": "CASE_C",
@@ -117,7 +117,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.88,
       "verdict": "PASS",
-      "latency_ms": 26.63
+      "latency_ms": 40.03
     },
     {
       "case_id": "DEV_001",
@@ -139,7 +139,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "PASS",
-      "latency_ms": 32.83
+      "latency_ms": 21.3
     },
     {
       "case_id": "DEV_002",
@@ -161,7 +161,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "PASS",
-      "latency_ms": 37.71
+      "latency_ms": 20.25
     },
     {
       "case_id": "DEV_003",
@@ -183,7 +183,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.8,
       "verdict": "PASS",
-      "latency_ms": 54.86
+      "latency_ms": 19.55
     },
     {
       "case_id": "DEV_004",
@@ -205,7 +205,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.8,
       "verdict": "PASS",
-      "latency_ms": 27.13
+      "latency_ms": 17.7
     },
     {
       "case_id": "DEV_005",
@@ -227,7 +227,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "FLAGGED",
-      "latency_ms": 24.36
+      "latency_ms": 18.73
     },
     {
       "case_id": "DEV_006",
@@ -249,7 +249,7 @@
       "keyword_recall": 0.4,
       "confidence": 0.78,
       "verdict": "PASS",
-      "latency_ms": 23.66
+      "latency_ms": 17.02
     },
     {
       "case_id": "DEV_007",
@@ -271,7 +271,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "PASS",
-      "latency_ms": 31.24
+      "latency_ms": 21.12
     },
     {
       "case_id": "DEV_008",
@@ -293,7 +293,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.8,
       "verdict": "PASS",
-      "latency_ms": 38.32
+      "latency_ms": 18.9
     },
     {
       "case_id": "DEV_009",
@@ -315,7 +315,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.8,
       "verdict": "PASS",
-      "latency_ms": 42.79
+      "latency_ms": 18.56
     },
     {
       "case_id": "DEV_010",
@@ -337,7 +337,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "FLAGGED",
-      "latency_ms": 32.53
+      "latency_ms": 23.19
     },
     {
       "case_id": "DEV_011",
@@ -359,7 +359,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "PASS",
-      "latency_ms": 34.47
+      "latency_ms": 22.29
     },
     {
       "case_id": "DEV_012",
@@ -381,7 +381,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.8,
       "verdict": "PASS",
-      "latency_ms": 33.44
+      "latency_ms": 21.56
     },
     {
       "case_id": "DEV_013",
@@ -403,7 +403,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.8,
       "verdict": "PASS",
-      "latency_ms": 26.73
+      "latency_ms": 17.88
     },
     {
       "case_id": "DEV_014",
@@ -425,7 +425,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.8,
       "verdict": "PASS",
-      "latency_ms": 27.95
+      "latency_ms": 20.25
     },
     {
       "case_id": "DEV_015",
@@ -447,7 +447,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "FLAGGED",
-      "latency_ms": 31.27
+      "latency_ms": 19.08
     },
     {
       "case_id": "DEV_016",
@@ -469,7 +469,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.88,
       "verdict": "PASS",
-      "latency_ms": 40.4
+      "latency_ms": 20.63
     },
     {
       "case_id": "DEV_017",
@@ -491,7 +491,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.88,
       "verdict": "PASS",
-      "latency_ms": 33.0
+      "latency_ms": 17.4
     },
     {
       "case_id": "DEV_018",
@@ -513,7 +513,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.88,
       "verdict": "PASS",
-      "latency_ms": 37.63
+      "latency_ms": 17.5
     },
     {
       "case_id": "DEV_019",
@@ -535,7 +535,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.88,
       "verdict": "PASS",
-      "latency_ms": 29.33
+      "latency_ms": 19.51
     },
     {
       "case_id": "DEV_020",
@@ -557,7 +557,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.88,
       "verdict": "PASS",
-      "latency_ms": 21.1
+      "latency_ms": 16.59
     },
     {
       "case_id": "TEST_001",
@@ -579,7 +579,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "PASS",
-      "latency_ms": 25.81
+      "latency_ms": 18.04
     },
     {
       "case_id": "TEST_002",
@@ -601,7 +601,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "PASS",
-      "latency_ms": 21.1
+      "latency_ms": 19.97
     },
     {
       "case_id": "TEST_003",
@@ -623,7 +623,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.8,
       "verdict": "PASS",
-      "latency_ms": 28.68
+      "latency_ms": 21.84
     },
     {
       "case_id": "TEST_004",
@@ -645,7 +645,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.8,
       "verdict": "PASS",
-      "latency_ms": 25.39
+      "latency_ms": 21.56
     },
     {
       "case_id": "TEST_005",
@@ -667,7 +667,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "FLAGGED",
-      "latency_ms": 25.94
+      "latency_ms": 19.41
     },
     {
       "case_id": "TEST_006",
@@ -689,7 +689,7 @@
       "keyword_recall": 0.4,
       "confidence": 0.78,
       "verdict": "PASS",
-      "latency_ms": 21.61
+      "latency_ms": 16.6
     },
     {
       "case_id": "TEST_007",
@@ -711,7 +711,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "PASS",
-      "latency_ms": 28.76
+      "latency_ms": 17.5
     },
     {
       "case_id": "TEST_008",
@@ -733,7 +733,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.8,
       "verdict": "PASS",
-      "latency_ms": 21.81
+      "latency_ms": 20.45
     },
     {
       "case_id": "TEST_009",
@@ -755,7 +755,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.8,
       "verdict": "PASS",
-      "latency_ms": 26.32
+      "latency_ms": 18.0
     },
     {
       "case_id": "TEST_010",
@@ -777,7 +777,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "FLAGGED",
-      "latency_ms": 21.6
+      "latency_ms": 17.26
     },
     {
       "case_id": "TEST_011",
@@ -799,7 +799,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "PASS",
-      "latency_ms": 22.51
+      "latency_ms": 18.22
     },
     {
       "case_id": "TEST_012",
@@ -821,7 +821,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.8,
       "verdict": "PASS",
-      "latency_ms": 24.38
+      "latency_ms": 16.03
     },
     {
       "case_id": "TEST_013",
@@ -843,7 +843,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.8,
       "verdict": "PASS",
-      "latency_ms": 22.35
+      "latency_ms": 20.67
     },
     {
       "case_id": "TEST_014",
@@ -865,7 +865,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.8,
       "verdict": "PASS",
-      "latency_ms": 29.74
+      "latency_ms": 26.39
     },
     {
       "case_id": "TEST_015",
@@ -887,7 +887,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.96,
       "verdict": "FLAGGED",
-      "latency_ms": 31.19
+      "latency_ms": 18.51
     },
     {
       "case_id": "TEST_016",
@@ -909,7 +909,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.88,
       "verdict": "PASS",
-      "latency_ms": 30.86
+      "latency_ms": 22.8
     },
     {
       "case_id": "TEST_017",
@@ -931,7 +931,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.88,
       "verdict": "PASS",
-      "latency_ms": 22.65
+      "latency_ms": 22.22
     },
     {
       "case_id": "TEST_018",
@@ -953,7 +953,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.88,
       "verdict": "PASS",
-      "latency_ms": 47.77
+      "latency_ms": 35.09
     },
     {
       "case_id": "TEST_019",
@@ -975,7 +975,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.88,
       "verdict": "PASS",
-      "latency_ms": 18.5
+      "latency_ms": 18.93
     },
     {
       "case_id": "TEST_020",
@@ -997,7 +997,7 @@
       "keyword_recall": 1.0,
       "confidence": 0.88,
       "verdict": "PASS",
-      "latency_ms": 21.69
+      "latency_ms": 19.08
     }
   ]
 }

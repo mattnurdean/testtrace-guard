@@ -1,0 +1,206 @@
+{
+  "run_id": "RUN-E3BE15D8",
+  "case_id": "CASE_C",
+  "timestamp": "2026-10-13T22:11:28Z",
+  "mode": "mock",
+  "analytics": {
+    "case_id": "CASE_C",
+    "facts": [
+      {
+        "fact_id": "E-001",
+        "category": "DATA_GAP",
+        "description": "Station ST-A missing calibration due date in maintenance ledger.",
+        "metric_name": "calibration_due_date",
+        "station_id": "ST-A",
+        "unit_id": null,
+        "freq_ghz": null,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": null,
+        "threshold": null,
+        "p_value": null,
+        "severity": "WARNING",
+        "source_trace": "station_history.csv:ST-A"
+      },
+      {
+        "fact_id": "E-002",
+        "category": "DATA_GAP",
+        "description": "Station ST-B missing calibration due date in maintenance ledger.",
+        "metric_name": "calibration_due_date",
+        "station_id": "ST-B",
+        "unit_id": null,
+        "freq_ghz": null,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": null,
+        "threshold": null,
+        "p_value": null,
+        "severity": "WARNING",
+        "source_trace": "station_history.csv:ST-B"
+      },
+      {
+        "fact_id": "E-003",
+        "category": "DATA_GAP",
+        "description": "Zero golden reference verification runs present in test package.",
+        "metric_name": "golden_verification",
+        "station_id": null,
+        "unit_id": null,
+        "freq_ghz": null,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": null,
+        "threshold": null,
+        "p_value": null,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_type=GOLDEN"
+      },
+      {
+        "fact_id": "E-004",
+        "category": "DUT_SPEC_VIOLATION",
+        "description": "Unit DUT_017 failed limit on phase_noise_10k @ 2.4 GHz on ST-A: -104.596 dBc/Hz (limit -105.0, delta +0.404).",
+        "metric_name": "phase_noise_10k",
+        "station_id": "ST-A",
+        "unit_id": "DUT_017",
+        "freq_ghz": 2.4,
+        "measured_value": -104.596,
+        "reference_value": -105.0,
+        "delta": 0.404,
+        "threshold": 0.3,
+        "p_value": null,
+        "severity": "CRITICAL",
+        "source_trace": "measurements.csv:run_id=RUN_00494"
+      }
+    ],
+    "failed_tests": [
+      "phase_noise_10k"
+    ],
+    "affected_stations": [
+      "ST-A"
+    ],
+    "has_golden_data": false,
+    "has_valid_cal": false,
+    "total_measurements": 1110,
+    "execution_time_ms": 2.33
+  },
+  "rule_evaluation": {
+    "case_id": "CASE_C",
+    "recommended_category": "INSUFFICIENT_EVIDENCE",
+    "recommended_side": "UNDETERMINED",
+    "status": "NEEDS_MORE_DATA",
+    "confidence": 0.88,
+    "fired_rules": [
+      {
+        "rule_id": "R-GAP-001",
+        "name": "Data Completeness Gap",
+        "description": "Investigation package lacks golden reference verification or valid calibration data.",
+        "target_category": "INSUFFICIENT_EVIDENCE",
+        "target_side": "UNDETERMINED",
+        "weight": 3.5,
+        "matched_fact_ids": [
+          "E-001",
+          "E-002",
+          "E-003"
+        ]
+      }
+    ],
+    "supporting_fact_ids": [
+      "E-001",
+      "E-002",
+      "E-003"
+    ],
+    "suggested_action": "Perform golden unit verification check across both stations and update instrument calibration records before re-testing.",
+    "suggested_kb_prefix": "MAN-9",
+    "execution_time_ms": 0.42
+  },
+  "retrieval": {
+    "case_id": "CASE_C",
+    "query_text": "INSUFFICIENT EVIDENCE Perform golden unit verification check across both stations and update instrument calibration records before re-testing. phase noise 10k Station ST-A missing calibration due date in maintenance ledger. Station ST-B missing calibration due date in maintenance ledger. Zero golden reference verification runs present in test package. Unit DUT_017 failed limit on phase_noise_10k @ 2.4 GHz on ST-A: -104.596 dBc/Hz (limit -105.0, delta +0.404). ST-A",
+    "primary_doc": {
+      "doc_id": "MAN-901",
+      "prefix": "MAN-9",
+      "title": "MAN-901: Inconclusive Evidence Triage and Missing Baseline Protocol",
+      "category": "INSUFFICIENT_EVIDENCE",
+      "target_side": "UNDETERMINED",
+      "score": 133.513,
+      "retrieval_method": "HYBRID",
+      "action_items": [
+        "1. **Halt Automated Disposition**: Do not scrap the DUT and do not disassemble the test station.",
+        "2. **Execute Golden Verification Campaign**: Immediately insert and measure a verified golden reference standard on the station across all frequency points.",
+        "3. **Audit Station Configuration and History**: Audit station calibration records, verify station configuration revision status, and manually record missing calibration dates into the tracking system.",
+        "4. **Multi-Sweep Repeat Test**: Perform a full 5-sweep repeat test of the target unit across both stations to establish statistical significance.",
+        "5. **Re-triage Package**: Re-submit the completed test package through TestTrace Guard once baseline data is restored."
+      ],
+      "excerpt": "- **Missing Golden Reference Baseline**: The measurement package contains zero golden unit verification runs to establish station ground truth. - **Missing Maintenance Ledger Records**: Calibration due dates or last reference check timestamps are blank in `station_history.csv`. - **Marginal Single-Sweep Violation**: A parameter slightly exceeds limits on only 1 of multiple repeated sweeps, while...",
+      "file_path": "data/kb/MAN-901_ambiguity_data_gaps.md"
+    },
+    "secondary_docs": [
+      {
+        "doc_id": "MAN-701",
+        "prefix": "MAN-7",
+        "title": "MAN-701: RF Instrumentation Metrology, Calibration Expiry, and Reference Drift",
+        "category": "INSTRUMENT_CALIBRATION",
+        "target_side": "MEASUREMENT_SYSTEM",
+        "score": 24.788,
+        "retrieval_method": "BM25_LEXICAL",
+        "action_items": [
+          "1. **Immediate Station Tag-Out**: Tag-out the expired test station from active production lines.",
+          "2. **Metrology Recertification**: Transfer the instrument to the site metrology laboratory for full annual calibration against certified standards.",
+          "3. **Reference Verification Check**: Following return from metrology, perform a certified golden reference check across full frequency bands.",
+          "4. **Update Station Ledger**: Record new calibration dates and certificates in the `station_history.csv` ledger before returning to service."
+        ],
+        "excerpt": "- **Expired Calibration Interval**: Maintenance ledger indicates station instrument calibration is overdue by more than 30 days. - **Multi-Parameter Measurement Shift**: Correlated drift observed across independent measurement domains (e.g., simultaneous shifts in insertion loss, phase noise, and power calibration). - **Station-Specific Drift Pattern**: Discrepancies persist across all DUTs run...",
+        "file_path": "data/kb/MAN-701_instrument_calibration.md"
+      },
+      {
+        "doc_id": "MAN-401",
+        "prefix": "MAN-4",
+        "title": "MAN-401: Station Configuration and Cable Loss Compensation Diagnostics",
+        "category": "STATION_CONFIGURATION",
+        "target_side": "MEASUREMENT_SYSTEM",
+        "score": 21.745,
+        "retrieval_method": "BM25_LEXICAL",
+        "action_items": [
+          "1. **Immediate Line Halt**: Immediately quarantine and halt the suspect station to prevent false DUT rejections.",
+          "2. **Audit Configuration Delta**: Review recent configuration version commits, audit station cable loss compensation, and inspect `cable_loss_compensation_table` entries against the golden calibration ledger.",
+          "3. **Reference Path Verification**: Inspect the physical reference path, RF jumper cables, and torque all SMA/3.5mm connectors to 8 in-lbs (0.9 N-m).",
+          "4. **Golden Re-characterization**: Re-run the golden reference standard across all sweeps. Verify measured insertion loss agrees with nominal reference values to within +/-0.30 dB.",
+          "5. **Configuration Baseline Restoration**: Restore the last verified baseline configuration table before releasing the station to production."
+        ],
+        "excerpt": "- **Golden Standard Deviation**: The golden reference verification unit fails insertion loss limits exclusively on the modified test station (e.g., ST-A), while passing within normal tolerance on sister stations (e.g., ST-B). - **Broadband Uniform Attenuation**: Measurement deltas across multi-gigahertz frequency sweeps show uniform or frequency-proportional negative shifts (e.g., -0.8 dB to -2.4...",
+        "file_path": "data/kb/MAN-401_station_configuration.md"
+      }
+    ],
+    "formatted_context": "=== RETRIEVED STANDARD OPERATING PROCEDURE (PRIMARY AUDIT REFERENCE) ===\nManual ID: MAN-901 (MAN-901: Inconclusive Evidence Triage and Missing Baseline Protocol)\nCategory: INSUFFICIENT_EVIDENCE | Architectural Domain: UNDETERMINED\nSource Specification: data/kb/MAN-901_ambiguity_data_gaps.md\n\nMandatory Corrective Action Protocol:\n  1. **Halt Automated Disposition**: Do not scrap the DUT and do not disassemble the test station.\n  2. **Execute Golden Verification Campaign**: Immediately insert and measure a verified golden reference standard on the station across all frequency points.\n  3. **Audit Station Configuration and History**: Audit station calibration records, verify station configuration revision status, and manually record missing calibration dates into the tracking system.\n  4. **Multi-Sweep Repeat Test**: Perform a full 5-sweep repeat test of the target unit across both stations to establish statistical significance.\n  5. **Re-triage Package**: Re-submit the completed test package through TestTrace Guard once baseline data is restored.\n\nDiagnostic Signatures & Root Cause Context:\n  - **Missing Golden Reference Baseline**: The measurement package contains zero golden unit verification runs to establish station ground truth. - **Missing Maintenance Ledger Records**: Calibration due dates or last reference check timestamps are blank in `station_history.csv`. - **Marginal Single-Sweep Violation**: A parameter slightly exceeds limits on only 1 of multiple repeated sweeps, while...\n\n=== SUPPLEMENTARY CROSS-REFERENCE MANUALS ===\n- MAN-701: MAN-701: RF Instrumentation Metrology, Calibration Expiry, and Reference Drift (Category: INSTRUMENT_CALIBRATION)\n- MAN-401: MAN-401: Station Configuration and Cable Loss Compensation Diagnostics (Category: STATION_CONFIGURATION)",
+    "execution_time_ms": 0.42
+  },
+  "report": {
+    "case_id": "CASE_C",
+    "category": "INSUFFICIENT_EVIDENCE",
+    "target_side": "UNDETERMINED",
+    "status": "NEEDS_MORE_DATA",
+    "confidence": 0.88,
+    "primary_kb_doc": "MAN-901",
+    "root_cause_summary": "Investigation package lacks essential golden reference verification baselines and maintenance records. Triage status set to NEEDS_MORE_DATA pending verification sweep.",
+    "supporting_fact_ids": [
+      "E-001",
+      "E-002",
+      "E-003"
+    ],
+    "recommended_actions": [
+      "1. **Halt Automated Disposition**: Do not scrap the DUT and do not disassemble the test station.",
+      "2. **Execute Golden Verification Campaign**: Immediately insert and measure a verified golden reference standard on the station across all frequency points.",
+      "3. **Audit Station Configuration and History**: Audit station calibration records, verify station configuration revision status, and manually record missing calibration dates into the tracking system.",
+      "4. **Multi-Sweep Repeat Test**: Perform a full 5-sweep repeat test of the target unit across both stations to establish statistical significance.",
+      "5. **Re-triage Package**: Re-submit the completed test package through TestTrace Guard once baseline data is restored."
+    ],
+    "preventative_actions": [
+      "Enforce automated pre-flight golden standard checks at start of each shift.",
+      "Integrate automated configuration change audit logging with continuous limit tracking."
+    ],
+    "validator_verdict": "PASS",
+    "discrepancies": [],
+    "execution_time_ms": 0.01
+  },
+  "total_execution_time_ms": 53.98,
+  "audit_file_path": "data/audit/CASE_C_RUN-E3BE15D8_2026-10-13_22-11-28.json"
+}

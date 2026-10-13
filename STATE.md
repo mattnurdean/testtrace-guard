@@ -16,7 +16,7 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 | 8 | DONE | <step8_commit_hash> | Pipeline, audit storage & FastAPI verified (9/9 tests pass, 44.97 ms CLI) |
 | 9 | DONE | <step9_commit_hash> | Streamlit UI verified (4/4 tests pass, interactive 5-tab console validated) |
 | 10 | DONE | pending | Evaluation & AMD benchmark verified (8/8 tests pass, 43 cases evaluated) |
-| 11 | IN_PROGRESS | — | Packaging & README (pyproject.toml, README.md) |
+| 11 | IN_PROGRESS | — | pyproject.toml verified (4/5 tests pass); README.md sections 5–7 append queued |
 | 12 | PENDING | — | Demo script & video |
 | 13 | PENDING | — | Slides & descriptions |
 | 14 | PENDING | — | Evolus integration (STRETCH) |

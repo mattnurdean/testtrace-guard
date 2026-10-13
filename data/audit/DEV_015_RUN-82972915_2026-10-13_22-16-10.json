@@ -1,0 +1,191 @@
+{
+  "run_id": "RUN-82972915",
+  "case_id": "DEV_015",
+  "timestamp": "2026-10-13T22:16:10Z",
+  "mode": "mock",
+  "analytics": {
+    "case_id": "DEV_015",
+    "facts": [
+      {
+        "fact_id": "E-001",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on insertion_loss @ 1.0 GHz: ST-A mean -1.594 vs ST-B mean -1.527 (delta -0.067, p=0.0051).",
+        "metric_name": "insertion_loss",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 1.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -0.067,
+        "threshold": 0.2,
+        "p_value": 0.00512,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      },
+      {
+        "fact_id": "E-002",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on insertion_loss @ 2.0 GHz: ST-A mean -1.564 vs ST-B mean -1.476 (delta -0.088, p=0.0000).",
+        "metric_name": "insertion_loss",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 2.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -0.088,
+        "threshold": 0.2,
+        "p_value": 0.0,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      },
+      {
+        "fact_id": "E-003",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on insertion_loss @ 3.0 GHz: ST-A mean -1.584 vs ST-B mean -1.534 (delta -0.051, p=0.0023).",
+        "metric_name": "insertion_loss",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 3.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -0.051,
+        "threshold": 0.2,
+        "p_value": 0.00229,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      },
+      {
+        "fact_id": "E-004",
+        "category": "STATION_DELTA",
+        "description": "Significant station delta on insertion_loss @ 5.0 GHz: ST-A mean -1.552 vs ST-B mean -1.501 (delta -0.051, p=0.0065).",
+        "metric_name": "insertion_loss",
+        "station_id": null,
+        "unit_id": "DUT_017",
+        "freq_ghz": 5.0,
+        "measured_value": null,
+        "reference_value": null,
+        "delta": -0.051,
+        "threshold": 0.2,
+        "p_value": 0.00646,
+        "severity": "WARNING",
+        "source_trace": "measurements.csv:unit_id=DUT_017&stations=ST-A,ST-B"
+      }
+    ],
+    "failed_tests": [],
+    "affected_stations": [],
+    "has_golden_data": true,
+    "has_valid_cal": true,
+    "total_measurements": 1215,
+    "execution_time_ms": 1.77
+  },
+  "rule_evaluation": {
+    "case_id": "DEV_015",
+    "recommended_category": "SPEC_OR_REVISION_MISMATCH",
+    "recommended_side": "SPECIFICATION",
+    "status": "PLAN_READY_FOR_REVIEW",
+    "confidence": 0.96,
+    "fired_rules": [
+      {
+        "rule_id": "R-REV-001",
+        "name": "Product Revision Mismatch",
+        "description": "Unit revision (REV_B) does not match active specification limit revision (REV_A).",
+        "target_category": "SPEC_OR_REVISION_MISMATCH",
+        "target_side": "SPECIFICATION",
+        "weight": 5.0,
+        "matched_fact_ids": []
+      }
+    ],
+    "supporting_fact_ids": [],
+    "suggested_action": "Align test limits with unit product revision. Verify sequence version and prevent cross-revision test execution.",
+    "suggested_kb_prefix": "MAN-8",
+    "execution_time_ms": 0.219
+  },
+  "retrieval": {
+    "case_id": "DEV_015",
+    "query_text": "SPEC OR REVISION MISMATCH Align test limits with unit product revision. Verify sequence version and prevent cross-revision test execution.",
+    "primary_doc": {
+      "doc_id": "MAN-801",
+      "prefix": "MAN-8",
+      "title": "MAN-801: Product Hardware Revision and Test Limit Matrix Synchronization",
+      "category": "SPEC_OR_REVISION_MISMATCH",
+      "target_side": "SPECIFICATION",
+      "score": 119.308,
+      "retrieval_method": "HYBRID",
+      "action_items": [
+        "1. **Verify Unit Hardware Revision**: Inspect physical serial number and QR barcode to establish true product revision status.",
+        "2. **Audit Limits Version**: Review `limits.csv` against current Engineering Change Notices (ECN).",
+        "3. **Align Test Limit Matrix**: Load corresponding limit set for the target product revision (e.g., activate `LIM_V2.0` for `REV_B`).",
+        "4. **Re-execute Sequence**: Re-run testing under matched limits to confirm compliant parametric performance."
+      ],
+      "excerpt": "- **Controlled Parametric Shift**: The target device exhibits deliberate engineering design differences (e.g., lower insertion loss nominal of $-1.40\\text{ dB}$) that violate tighter legacy limits (e.g., upper limit $-2.00\\text{ dB}$). - **Healthy Repeatability and Golden Runs**: Golden reference units pass with high precision; multi-station runs on the target DUT are completely repeatable. -...",
+      "file_path": "data/kb/MAN-801_revision_limits.md"
+    },
+    "secondary_docs": [
+      {
+        "doc_id": "MAN-401",
+        "prefix": "MAN-4",
+        "title": "MAN-401: Station Configuration and Cable Loss Compensation Diagnostics",
+        "category": "STATION_CONFIGURATION",
+        "target_side": "MEASUREMENT_SYSTEM",
+        "score": 6.884,
+        "retrieval_method": "BM25_LEXICAL",
+        "action_items": [
+          "1. **Immediate Line Halt**: Immediately quarantine and halt the suspect station to prevent false DUT rejections.",
+          "2. **Audit Configuration Delta**: Review recent configuration version commits, audit station cable loss compensation, and inspect `cable_loss_compensation_table` entries against the golden calibration ledger.",
+          "3. **Reference Path Verification**: Inspect the physical reference path, RF jumper cables, and torque all SMA/3.5mm connectors to 8 in-lbs (0.9 N-m).",
+          "4. **Golden Re-characterization**: Re-run the golden reference standard across all sweeps. Verify measured insertion loss agrees with nominal reference values to within +/-0.30 dB.",
+          "5. **Configuration Baseline Restoration**: Restore the last verified baseline configuration table before releasing the station to production."
+        ],
+        "excerpt": "- **Golden Standard Deviation**: The golden reference verification unit fails insertion loss limits exclusively on the modified test station (e.g., ST-A), while passing within normal tolerance on sister stations (e.g., ST-B). - **Broadband Uniform Attenuation**: Measurement deltas across multi-gigahertz frequency sweeps show uniform or frequency-proportional negative shifts (e.g., -0.8 dB to -2.4...",
+        "file_path": "data/kb/MAN-401_station_configuration.md"
+      },
+      {
+        "doc_id": "MAN-901",
+        "prefix": "MAN-9",
+        "title": "MAN-901: Inconclusive Evidence Triage and Missing Baseline Protocol",
+        "category": "INSUFFICIENT_EVIDENCE",
+        "target_side": "UNDETERMINED",
+        "score": 4.431,
+        "retrieval_method": "BM25_LEXICAL",
+        "action_items": [
+          "1. **Halt Automated Disposition**: Do not scrap the DUT and do not disassemble the test station.",
+          "2. **Execute Golden Verification Campaign**: Immediately insert and measure a verified golden reference standard on the station across all frequency points.",
+          "3. **Audit Station Configuration and History**: Audit station calibration records, verify station configuration revision status, and manually record missing calibration dates into the tracking system.",
+          "4. **Multi-Sweep Repeat Test**: Perform a full 5-sweep repeat test of the target unit across both stations to establish statistical significance.",
+          "5. **Re-triage Package**: Re-submit the completed test package through TestTrace Guard once baseline data is restored."
+        ],
+        "excerpt": "- **Missing Golden Reference Baseline**: The measurement package contains zero golden unit verification runs to establish station ground truth. - **Missing Maintenance Ledger Records**: Calibration due dates or last reference check timestamps are blank in `station_history.csv`. - **Marginal Single-Sweep Violation**: A parameter slightly exceeds limits on only 1 of multiple repeated sweeps, while...",
+        "file_path": "data/kb/MAN-901_ambiguity_data_gaps.md"
+      }
+    ],
+    "formatted_context": "=== RETRIEVED STANDARD OPERATING PROCEDURE (PRIMARY AUDIT REFERENCE) ===\nManual ID: MAN-801 (MAN-801: Product Hardware Revision and Test Limit Matrix Synchronization)\nCategory: SPEC_OR_REVISION_MISMATCH | Architectural Domain: SPECIFICATION\nSource Specification: data/kb/MAN-801_revision_limits.md\n\nMandatory Corrective Action Protocol:\n  1. **Verify Unit Hardware Revision**: Inspect physical serial number and QR barcode to establish true product revision status.\n  2. **Audit Limits Version**: Review `limits.csv` against current Engineering Change Notices (ECN).\n  3. **Align Test Limit Matrix**: Load corresponding limit set for the target product revision (e.g., activate `LIM_V2.0` for `REV_B`).\n  4. **Re-execute Sequence**: Re-run testing under matched limits to confirm compliant parametric performance.\n\nDiagnostic Signatures & Root Cause Context:\n  - **Controlled Parametric Shift**: The target device exhibits deliberate engineering design differences (e.g., lower insertion loss nominal of $-1.40\\text{ dB}$) that violate tighter legacy limits (e.g., upper limit $-2.00\\text{ dB}$). - **Healthy Repeatability and Golden Runs**: Golden reference units pass with high precision; multi-station runs on the target DUT are completely repeatable. -...\n\n=== SUPPLEMENTARY CROSS-REFERENCE MANUALS ===\n- MAN-401: MAN-401: Station Configuration and Cable Loss Compensation Diagnostics (Category: STATION_CONFIGURATION)\n- MAN-901: MAN-901: Inconclusive Evidence Triage and Missing Baseline Protocol (Category: INSUFFICIENT_EVIDENCE)",
+    "execution_time_ms": 0.193
+  },
+  "report": {
+    "case_id": "DEV_015",
+    "category": "SPEC_OR_REVISION_MISMATCH",
+    "target_side": "SPECIFICATION",
+    "status": "PLAN_READY_FOR_REVIEW",
+    "confidence": 0.96,
+    "primary_kb_doc": "MAN-801",
+    "root_cause_summary": "Parametric measurements reflect design parameters of updated product revision evaluated against legacy specification limits.",
+    "supporting_fact_ids": [],
+    "recommended_actions": [
+      "1. **Verify Unit Hardware Revision**: Inspect physical serial number and QR barcode to establish true product revision status.",
+      "2. **Audit Limits Version**: Review `limits.csv` against current Engineering Change Notices (ECN).",
+      "3. **Align Test Limit Matrix**: Load corresponding limit set for the target product revision (e.g., activate `LIM_V2.0` for `REV_B`).",
+      "4. **Re-execute Sequence**: Re-run testing under matched limits to confirm compliant parametric performance."
+    ],
+    "preventative_actions": [
+      "Enforce automated pre-flight golden standard checks at start of each shift.",
+      "Integrate automated configuration change audit logging with continuous limit tracking."
+    ],
+    "validator_verdict": "FLAGGED",
+    "discrepancies": [
+      "EMPTY_FACTS: Restored supporting fact IDs from deterministic rule engine."
+    ],
+    "execution_time_ms": 0.0
+  },
+  "total_execution_time_ms": 19.08,
+  "audit_file_path": "data/audit/DEV_015_RUN-82972915_2026-10-13_22-16-10.json"
+}
