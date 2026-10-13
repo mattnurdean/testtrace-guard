@@ -4,8 +4,8 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 
 ## Steps
 | Step | Status | Commit | Notes |
-|---|---|---|---|
-| 0 | IN_PROGRESS | pending | Repository tree initialized, venv created |
+|---|---      |---       |---|
+| 0 | DONE    | <your_latest_commit_hash> | Repo created, venv active tree initialized |
 | 1 | PENDING | — | AMD vLLM endpoint setup |
 | 2 | PENDING | — | Synthetic data generator |
 | 3 | PENDING | — | Deterministic analytics |
