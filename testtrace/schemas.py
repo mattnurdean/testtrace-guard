@@ -1,4 +1,4 @@
-"""Pydantic v2 schemas for TestTrace Guard data, evidence facts, and triage rules."""
+"""Pydantic v2 schemas for TestTrace Guard data, evidence facts, triage rules, and retrieval."""
 
 from datetime import datetime
 from typing import Any, Optional
@@ -155,4 +155,26 @@ class RuleEvaluationResult(BaseModel):
     supporting_fact_ids: list[str]
     suggested_action: str
     suggested_kb_prefix: str
+    execution_time_ms: float
+
+
+class RetrievedDocument(BaseModel):
+    doc_id: str
+    prefix: str
+    title: str
+    category: str
+    target_side: str
+    score: float
+    retrieval_method: str  # "ANCHOR_MATCH", "BM25_LEXICAL", "HYBRID"
+    action_items: list[str] = Field(default_factory=list)
+    excerpt: str
+    file_path: str
+
+
+class RetrievalResult(BaseModel):
+    case_id: str
+    query_text: str
+    primary_doc: RetrievedDocument
+    secondary_docs: list[RetrievedDocument] = Field(default_factory=list)
+    formatted_context: str
     execution_time_ms: float

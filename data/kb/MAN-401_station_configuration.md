@@ -22,7 +22,7 @@ This procedure governs investigations when an RF automated test station exhibits
 
 ## 4. Mandatory Corrective Action Protocol
 1. **Immediate Line Halt**: Immediately quarantine and halt the suspect station to prevent false DUT rejections.
-2. **Audit Configuration Delta**: Review recent configuration version commits and inspect `cable_loss_compensation_table` entries against the golden calibration ledger.
+2. **Audit Configuration Delta**: Review recent configuration version commits, audit station cable loss compensation, and inspect `cable_loss_compensation_table` entries against the golden calibration ledger.
 3. **Reference Path Verification**: Inspect the physical reference path, RF jumper cables, and torque all SMA/3.5mm connectors to 8 in-lbs (0.9 N-m).
 4. **Golden Re-characterization**: Re-run the golden reference standard across all sweeps. Verify measured insertion loss agrees with nominal reference values to within +/-0.30 dB.
 5. **Configuration Baseline Restoration**: Restore the last verified baseline configuration table before releasing the station to production.

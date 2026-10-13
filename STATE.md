@@ -11,8 +11,8 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 | 3 | DONE | <step3_commit_hash> | Deterministic analytics engine verified (5/5 tests pass, 0.44s execution) |
 | 4 | DONE | pending | Rule engine complete and verified (7/7 tests pass, <10 ms evaluation) |
 | 5 | DONE | pending | Knowledge base curated & BM25 engine verified (10/10 tests pass, <1 ms search) |
-| 6 | IN_PROGRESS | — | Hybrid retrieval pipeline (testtrace/retrieval.py) |
-| 7 | PENDING | — | LLM reasoner + validator |
+| 6 | DONE | pending | Hybrid retrieval pipeline complete and verified (8/8 tests pass, <2 ms retrieval) |
+| 7 | IN_PROGRESS | — | LLM reasoner + validator (testtrace/reasoner.py, testtrace/validator.py) |
 | 8 | PENDING | — | Pipeline + API + storage |
 | 9 | PENDING | — | Streamlit UI |
 | 10 | PENDING | — | Evaluation + AMD benchmark |
@@ -48,6 +48,10 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - data/kb/MAN-901_ambiguity_data_gaps.md — SOP for ambiguous data gaps and missing golden reference checks
 - testtrace/kb.py — document parsing and pure-Python BM25Okapi search engine
 - tests/test_kb.py — acceptance tests for KB ingestion, prefix lookups, and BM25 retrieval benchmark
+- testtrace/schemas.py — added RetrievedDocument and RetrievalResult models
+- testtrace/retrieval.py — hybrid retrieval combining rule anchor routing, BM25 scoring, and context formatting
+- tests/test_retrieval.py — acceptance tests for canonical case retrieval, fault families, and latency benchmark
+
 
 ## Decisions / overrides
 - Paused Step 1 live endpoint verification due to 404 route error on Token Factory; activated Playbook §5 mock mode fallback to safeguard internal freeze schedule (Oct 15).
@@ -57,12 +61,16 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - Rule engine prioritizes `INSUFFICIENT_EVIDENCE` / `NEEDS_MORE_DATA` whenever critical golden reference runs or calibration records are absent.
 - Implemented pure-Python BM25Okapi with smoothed Robertson-Spärck Jones IDF; requires zero external C-extensions, ensuring deterministic local execution.
 - Configured metadata extraction for manual prefixes (MAN-4 through MAN-9) to align with rule engine recommendations and truth specifications.
+- Implemented deterministic anchor promotion: rule engine's suggested_kb_prefix receives routing priority, backed by BM25 relevance scores.
+- Formatted prompt context injects verbatim SOP corrective action protocol bullets to guarantee grounded recommendations in Step 7.
+- Normalized underscores to spaces in keyword matching to robustly support snake_case parameter names within natural-language protocols.
 
 ## Assumptions
 - Python 3.14 virtual environment active.
 - Synthetic dataset generated in `data/synthetic/` remains available locally.
 - Development of Steps 2 through 6 continues in mock mode without requiring an active remote AMD GPU.
 - Knowledge base markdown documents in data/kb/ remain read-only during search queries.
+- Knowledge base markdown corpus in data/kb/ is indexed and accessible.
 
 ## Open issues
 - AMD Developer Cloud instance pending launch and verification in Step 1.
@@ -73,3 +81,4 @@ Step 1 — AMD vLLM endpoint verification (Gate G0).
 Step 2 — Synthetic data generator (testtrace/datagen.py).
 Step 5 — Knowledge base curation and indexing (data/kb/*.md, testtrace/kb.py).
 Step 6 — Hybrid retrieval pipeline (testtrace/retrieval.py, tests/test_retrieval.py).
+Step 7 — LLM reasoner + validator (testtrace/reasoner.py, testtrace/validator.py, tests/test_reasoner.py).
