@@ -1,0 +1,16 @@
+limits_version,product_revision,test_name,freq_ghz,lower_limit,upper_limit,unit,meas_uncertainty
+LIM_V1.0,REV_A,insertion_loss,1.0,-4.00,-2.00,dB,0.10
+LIM_V1.0,REV_A,insertion_loss,2.0,-4.00,-2.00,dB,0.10
+LIM_V1.0,REV_A,insertion_loss,3.0,-4.00,-2.00,dB,0.10
+LIM_V1.0,REV_A,insertion_loss,4.0,-4.00,-2.00,dB,0.10
+LIM_V1.0,REV_A,insertion_loss,5.0,-4.00,-2.00,dB,0.10
+LIM_V1.0,REV_A,insertion_loss,6.0,-4.00,-2.00,dB,0.10
+LIM_V1.0,REV_A,return_loss,1.0,,-10.00,dB,0.50
+LIM_V1.0,REV_A,return_loss,2.0,,-10.00,dB,0.50
+LIM_V1.0,REV_A,return_loss,3.0,,-10.00,dB,0.50
+LIM_V1.0,REV_A,return_loss,4.0,,-10.00,dB,0.50
+LIM_V1.0,REV_A,return_loss,5.0,,-10.00,dB,0.50
+LIM_V1.0,REV_A,return_loss,6.0,,-10.00,dB,0.50
+LIM_V1.0,REV_A,lo_leakage,2.4,,-40.00,dBm,0.50
+LIM_V1.0,REV_A,phase_noise_10k,2.4,,-105.00,dBc/Hz,0.30
+LIM_V1.0,REV_A,harmonic_h2,2.4,,-30.00,dBc,0.50

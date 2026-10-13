@@ -1,0 +1,3 @@
+station_id,instrument_id,fixture_id,calibration_due_date,last_reference_check,software_version,configuration_version,recent_change,recent_change_at,historical_failure_rate
+ST-A,INSTR-A1,FX-1,,,SW-4.1.0,CFG-2.2,none,,0.012
+ST-B,INSTR-B1,FX-2,,,SW-4.1.0,CFG-1.9,none,,0.015

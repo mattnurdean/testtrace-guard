@@ -7,8 +7,8 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 |---|---      |---       |---|
 | 0 | DONE    | <your_latest_commit_hash> | Repo created, venv active tree initialized |
 | 1 | PAUSED  | — | Token Factory 404; paused for Discord clarification. Fallback to MOCK mode per Playbook §5 |
-| 2 | IN_PROGRESS | — | Synthetic data generator |
-| 3 | PENDING | — | Deterministic analytics |
+| 2 | DONE    | <paste_step2_commit_hash> | Synthetic dataset generator complete and verified (6/6 tests pass) |
+| 3 | IN_PROGRESS | — | Deterministic analytics (testtrace/schemas.py, testtrace/analytics.py) |
 | 4 | PENDING | — | Rule engine |
 | 5 | PENDING | — | Knowledge base |
 | 6 | PENDING | — | Retrieval |

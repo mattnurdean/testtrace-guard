@@ -1,0 +1,16 @@
+{
+  "case_id": "CASE_B",
+  "split": "demo",
+  "family": "F2",
+  "difficulty": "easy",
+  "true_category": "DUT_DEFECT",
+  "true_side": "DUT",
+  "expected_status": "PLAN_READY_FOR_REVIEW",
+  "expected_kb_prefix": "MAN-6",
+  "expected_action_keywords": [
+    "isolation",
+    "shield",
+    "LO"
+  ],
+  "notes": "Synthetic case CASE_B (F2, difficulty: easy) generated deterministically."
+}

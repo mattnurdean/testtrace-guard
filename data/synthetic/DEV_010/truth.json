@@ -1,0 +1,15 @@
+{
+  "case_id": "DEV_010",
+  "split": "dev",
+  "family": "F5",
+  "difficulty": "easy",
+  "true_category": "SPEC_OR_REVISION_MISMATCH",
+  "true_side": "SPECIFICATION",
+  "expected_status": "PLAN_READY_FOR_REVIEW",
+  "expected_kb_prefix": "MAN-8",
+  "expected_action_keywords": [
+    "limits",
+    "revision"
+  ],
+  "notes": "Synthetic case DEV_010 (F5, difficulty: easy) generated deterministically."
+}

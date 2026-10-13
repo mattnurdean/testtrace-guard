@@ -1,0 +1,16 @@
+{
+  "case_id": "TEST_014",
+  "split": "test",
+  "family": "F4",
+  "difficulty": "easy",
+  "true_category": "INSTRUMENT_CALIBRATION",
+  "true_side": "MEASUREMENT_SYSTEM",
+  "expected_status": "PLAN_READY_FOR_REVIEW",
+  "expected_kb_prefix": "MAN-7",
+  "expected_action_keywords": [
+    "calibration",
+    "golden",
+    "reference check"
+  ],
+  "notes": "Synthetic case TEST_014 (F4, difficulty: easy) generated deterministically."
+}

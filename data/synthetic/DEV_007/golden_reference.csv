@@ -1,0 +1,16 @@
+unit_id,test_name,freq_ghz,ref_value,tol,unit
+GOLDEN_01,insertion_loss,1.0,-2.500,0.50,dB
+GOLDEN_01,insertion_loss,2.0,-2.650,0.50,dB
+GOLDEN_01,insertion_loss,3.0,-2.800,0.50,dB
+GOLDEN_01,insertion_loss,4.0,-2.950,0.50,dB
+GOLDEN_01,insertion_loss,5.0,-3.100,0.50,dB
+GOLDEN_01,insertion_loss,6.0,-3.250,0.50,dB
+GOLDEN_01,return_loss,1.0,-18.000,0.50,dB
+GOLDEN_01,return_loss,2.0,-18.000,0.50,dB
+GOLDEN_01,return_loss,3.0,-18.000,0.50,dB
+GOLDEN_01,return_loss,4.0,-18.000,0.50,dB
+GOLDEN_01,return_loss,5.0,-18.000,0.50,dB
+GOLDEN_01,return_loss,6.0,-18.000,0.50,dB
+GOLDEN_01,lo_leakage,2.4,-52.000,0.50,dBm
+GOLDEN_01,phase_noise_10k,2.4,-110.000,0.30,dBc/Hz
+GOLDEN_01,harmonic_h2,2.4,-38.000,0.50,dBc

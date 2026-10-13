@@ -1,0 +1,17 @@
+{
+  "case_id": "DEV_008",
+  "split": "dev",
+  "family": "F3",
+  "difficulty": "easy",
+  "true_category": "FIXTURE_CONTACT",
+  "true_side": "MEASUREMENT_SYSTEM",
+  "expected_status": "PLAN_READY_FOR_REVIEW",
+  "expected_kb_prefix": "MAN-5",
+  "expected_action_keywords": [
+    "reconnect",
+    "re-seat",
+    "repeatability",
+    "contact"
+  ],
+  "notes": "Synthetic case DEV_008 (F3, difficulty: easy) generated deterministically."
+}

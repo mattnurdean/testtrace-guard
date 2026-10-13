@@ -1,0 +1,16 @@
+{
+  "case_id": "DEV_019",
+  "split": "dev",
+  "family": "AMB",
+  "difficulty": "easy",
+  "true_category": "INSUFFICIENT_EVIDENCE",
+  "true_side": "UNDETERMINED",
+  "expected_status": "NEEDS_MORE_DATA",
+  "expected_kb_prefix": "MAN-9",
+  "expected_action_keywords": [
+    "golden",
+    "repeat",
+    "configuration revision"
+  ],
+  "notes": "Synthetic case DEV_019 (AMB, difficulty: easy) generated deterministically."
+}

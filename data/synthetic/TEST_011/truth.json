@@ -1,0 +1,18 @@
+{
+  "case_id": "TEST_011",
+  "split": "test",
+  "family": "F1",
+  "difficulty": "easy",
+  "true_category": "STATION_CONFIGURATION",
+  "true_side": "MEASUREMENT_SYSTEM",
+  "expected_status": "PLAN_READY_FOR_REVIEW",
+  "expected_kb_prefix": "MAN-4",
+  "expected_action_keywords": [
+    "golden",
+    "reference path",
+    "cable loss",
+    "compensation",
+    "configuration"
+  ],
+  "notes": "Synthetic case TEST_011 (F1, difficulty: easy) generated deterministically."
+}
