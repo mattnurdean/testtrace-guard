@@ -12,8 +12,8 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 | 4 | DONE | pending | Rule engine complete and verified (7/7 tests pass, <10 ms evaluation) |
 | 5 | DONE | pending | Knowledge base curated & BM25 engine verified (10/10 tests pass, <1 ms search) |
 | 6 | DONE | pending | Hybrid retrieval pipeline complete and verified (8/8 tests pass, <2 ms retrieval) |
-| 7 | IN_PROGRESS | — | LLM reasoner + validator (testtrace/reasoner.py, testtrace/validator.py) |
-| 8 | PENDING | — | Pipeline + API + storage |
+| 7 | DONE | pending | LLM reasoner & guardrail validator verified (7/7 tests pass, <10 ms mock) |
+| 8 | IN_PROGRESS | — | Pipeline + API + storage (testtrace/pipeline.py, testtrace/api.py) |
 | 9 | PENDING | — | Streamlit UI |
 | 10 | PENDING | — | Evaluation + AMD benchmark |
 | 11 | PENDING | — | Packaging & README |
@@ -51,7 +51,10 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - testtrace/schemas.py — added RetrievedDocument and RetrievalResult models
 - testtrace/retrieval.py — hybrid retrieval combining rule anchor routing, BM25 scoring, and context formatting
 - tests/test_retrieval.py — acceptance tests for canonical case retrieval, fault families, and latency benchmark
-
+- testtrace/schemas.py — added DiagnosticReport and ValidationResult models
+- testtrace/validator.py — deterministic guardrail validator for fact grounding and category consistency
+- testtrace/reasoner.py — LLM reasoning engine supporting mock and vLLM inference modes with retry logic
+- tests/test_reasoner.py — acceptance tests for diagnostic reporting, hallucination guardrails, and latency
 
 ## Decisions / overrides
 - Paused Step 1 live endpoint verification due to 404 route error on Token Factory; activated Playbook §5 mock mode fallback to safeguard internal freeze schedule (Oct 15).
@@ -64,6 +67,9 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - Implemented deterministic anchor promotion: rule engine's suggested_kb_prefix receives routing priority, backed by BM25 relevance scores.
 - Formatted prompt context injects verbatim SOP corrective action protocol bullets to guarantee grounded recommendations in Step 7.
 - Normalized underscores to spaces in keyword matching to robustly support snake_case parameter names within natural-language protocols.
+- Implemented dual-mode reasoning: mock mode operates completely offline and deterministically, while vLLM mode routes to OpenAI-compatible endpoints with automated JSON recovery.
+- Guardrail validator automatically strips ungrounded/hallucinated fact IDs and enforces rule engine overrides whenever deterministic rule confidence is >= 0.80.
+- Enforced invariant: INSUFFICIENT_EVIDENCE triage must always map to status NEEDS_MORE_DATA.
 
 ## Assumptions
 - Python 3.14 virtual environment active.
@@ -71,6 +77,7 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - Development of Steps 2 through 6 continues in mock mode without requiring an active remote AMD GPU.
 - Knowledge base markdown documents in data/kb/ remain read-only during search queries.
 - Knowledge base markdown corpus in data/kb/ is indexed and accessible.
+- Synthetic dataset in data/synthetic/ and SOP corpus in data/kb/ remain available locally.
 
 ## Open issues
 - AMD Developer Cloud instance pending launch and verification in Step 1.
@@ -82,3 +89,4 @@ Step 2 — Synthetic data generator (testtrace/datagen.py).
 Step 5 — Knowledge base curation and indexing (data/kb/*.md, testtrace/kb.py).
 Step 6 — Hybrid retrieval pipeline (testtrace/retrieval.py, tests/test_retrieval.py).
 Step 7 — LLM reasoner + validator (testtrace/reasoner.py, testtrace/validator.py, tests/test_reasoner.py).
+Step 8 — End-to-end pipeline, CLI, and audit storage (testtrace/pipeline.py, testtrace/api.py, tests/test_pipeline.py).

@@ -1,4 +1,4 @@
-"""Pydantic v2 schemas for TestTrace Guard data, evidence facts, triage rules, and retrieval."""
+"""Pydantic v2 schemas for TestTrace Guard data, evidence facts, triage rules, retrieval, and diagnostic reports."""
 
 from datetime import datetime
 from typing import Any, Optional
@@ -178,3 +178,27 @@ class RetrievalResult(BaseModel):
     secondary_docs: list[RetrievedDocument] = Field(default_factory=list)
     formatted_context: str
     execution_time_ms: float
+
+
+class DiagnosticReport(BaseModel):
+    case_id: str
+    category: str
+    target_side: str
+    status: str  # "PLAN_READY_FOR_REVIEW" or "NEEDS_MORE_DATA"
+    confidence: float
+    primary_kb_doc: str
+    root_cause_summary: str
+    supporting_fact_ids: list[str] = Field(default_factory=list)
+    recommended_actions: list[str] = Field(default_factory=list)
+    preventative_actions: list[str] = Field(default_factory=list)
+    validator_verdict: str = "PASS"  # "PASS", "CORRECTED", "FLAGGED"
+    discrepancies: list[str] = Field(default_factory=list)
+    execution_time_ms: float = 0.0
+
+
+class ValidationResult(BaseModel):
+    is_valid: bool
+    verdict: str  # "PASS", "CORRECTED", "FLAGGED"
+    sanitized_report: DiagnosticReport
+    discrepancies: list[str] = Field(default_factory=list)
+    overrides_applied: list[str] = Field(default_factory=list)
