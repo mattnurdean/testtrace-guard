@@ -1,0 +1,30 @@
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Secrets and environment configs
+.env
+*.key
+*.pem
+*.token
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Data outputs and caches
+cached_runs/*
+!data/cached_runs/.gitkeep
+bench/results.json
+eval/results/*
+!eval/results/.gitkeep
