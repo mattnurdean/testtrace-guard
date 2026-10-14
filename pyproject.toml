@@ -1,64 +1,57 @@
-﻿[build-system]
+[build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "testtrace-guard"
 version = "0.1.0"
-description = "Automated RF test fault triage and root-cause audit system with deterministic analytics and AMD vLLM guardrail."
+description = "Automated RF test fault triage and measurement integrity assurance system."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [
-    { name = "Din (Muhammad Nuruddin)", email = "din@example.com" }
-]
-keywords = [
-    "rf-testing",
-    "fault-triage",
-    "semiconductor",
-    "ate",
-    "vllm",
-    "amd-rocm",
-    "rag",
-    "guardrails"
-]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Manufacturing",
-    "Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14",
-    "License :: OSI Approved :: MIT License"
+    { name = "Muhammad Nuruddin" }
 ]
 dependencies = [
     "pydantic>=2.0.0",
-    "fastapi>=0.110.0",
-    "uvicorn>=0.28.0",
-    "streamlit>=1.32.0",
-    "pandas>=2.0.0",
-    "openai>=1.14.0",
-    "httpx>=0.27.0"
+    "fastapi>=0.100.0",
+    "uvicorn>=0.23.0",
+    "streamlit>=1.30.0",
+    "httpx>=0.25.0",
+    "openai>=1.0.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=8.0.0",
-    "pytest-cov>=4.1.0",
-    "anyio>=4.0.0"
+    "pytest>=7.0.0",
 ]
 
 [project.scripts]
 testtrace = "testtrace.pipeline:main"
 
-[tool.pytest.ini_options]
-minversion = "8.0"
-addopts = "-ra -q"
-testpaths = ["tests"]
-pythonpath = ["."]
-
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["testtrace*"]
+
+[tool.poetry]
+name = "testtrace-guard"
+version = "0.1.0"
+description = "Automated RF test fault triage and measurement integrity assurance system."
+authors = ["Muhammad Nuruddin"]
+readme = "README.md"
+packages = [{ include = "testtrace" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+pydantic = ">=2.0.0"
+fastapi = ">=0.100.0"
+uvicorn = ">=0.23.0"
+streamlit = ">=1.30.0"
+httpx = ">=0.25.0"
+openai = ">=1.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.0.0"
+
+[tool.poetry.scripts]
+testtrace = "testtrace.pipeline:main"
