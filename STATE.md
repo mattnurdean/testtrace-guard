@@ -16,9 +16,9 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 | 8 | DONE | <step8_commit_hash> | Pipeline, audit storage & FastAPI verified (9/9 tests pass, 44.97 ms CLI) |
 | 9 | DONE | <step9_commit_hash> | Streamlit UI verified (4/4 tests pass, interactive 5-tab console validated) |
 | 10 | DONE | <step10_commit_hash> | Evaluation & AMD benchmark verified (8/8 tests pass, 43 cases evaluated) |
-| 11 | DONE | pending | Packaging & README verified (5/5 tests pass, pyproject.toml & complete README.md) |
-| 12 | IN_PROGRESS | — | Demo script & video (docs/DEMO_SCRIPT.md) |
-| 13 | PENDING | — | Slides & descriptions |
+| 11 | DONE | <step11_commit_hash> | Packaging & README verified (5/5 tests pass, pyproject.toml & complete README.md) |
+| 12 | DONE | pending | Demo script & CLI walkthrough verified (3/3 tests pass, docs/DEMO_SCRIPT.md) |
+| 13 | IN_PROGRESS | — | Slides & descriptions (docs/SLIDES_OUTLINE.md, docs/SUBMISSION_TEXT.md) |
 | 14 | PENDING | — | Evolus integration (STRETCH) |
 | 15 | PENDING | — | Final submission |
 
@@ -66,7 +66,12 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - tests/test_benchmark.py — acceptance tests for benchmark accuracy thresholds and execution budget
 - data/benchmark_results.json — telemetry JSON containing run-level predictions, latencies, and KPIs
 - data/benchmark_summary.md — executive benchmark comparison report with KPI table and breakdown
-
+- pyproject.toml — PEP 517/518 build specification, dependencies, and CLI entry point
+- README.md — comprehensive technical and executive documentation with architecture, benchmarks, and guides
+- tests/test_packaging.py — acceptance tests for packaging metadata, dependencies, and README completeness
+- docs/DEMO_SCRIPT.md — 3-minute time-coded video recording script, storyboard, and pre-flight checklist
+- scripts/demo_walkthrough.py — automated CLI walkthrough runner for Canonical Cases A, B, and C
+- tests/test_demo.py — acceptance tests for demo documentation and walkthrough execution
 
 ## Decisions / overrides
 - Paused Step 1 live endpoint verification due to 404 route error on Token Factory; activated Playbook §5 mock mode fallback to safeguard internal freeze schedule (Oct 15).
@@ -90,6 +95,7 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - Added repository root path insertion to scripts/run_benchmark.py for direct CLI invocation across operating systems.
 - Emitted full SOP action item lists in diagnostic reports to preserve all protocol keywords across all fault families (100% action keyword recall).
 - Verified RF failure isolation benchmarks: Category Accuracy >= 90%, Domain Accuracy >= 95%, Status Accuracy >= 95%, SOP Accuracy >= 95%, and Mean Latency < 100 ms.
+
 
 ## Assumptions
 - Python 3.14 virtual environment active.
