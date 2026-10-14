@@ -1,0 +1,22 @@
+{
+  "ticket_id": "EVO-D79BE292",
+  "ticket_type": "STATION_MAINTENANCE_HALT",
+  "target_entity": "Station_ST-A",
+  "priority": "CRITICAL",
+  "status": "DISPATCHED",
+  "title": "HALT Station_ST-A: Station Cable Loss Offset & Config Drift",
+  "description": "Automated line halt triggered by TestTrace Guard for Station_ST-A. Systematic insertion loss delta detected. Execute MAN-401 corrective baseline restoration.",
+  "sop_reference": "MAN-401",
+  "action_items": [
+    "1. **Immediate Line Halt**: Immediately quarantine and halt the suspect station to prevent false DUT rejections.",
+    "2. **Audit Configuration Delta**: Review recent configuration version commits, audit station cable loss compensation, and inspect `cable_loss_compensation_table` entries against the golden calibration ledger.",
+    "3. **Reference Path Verification**: Inspect the physical reference path, RF jumper cables, and torque all SMA/3.5mm connectors to 8 in-lbs (0.9 N-m).",
+    "4. **Golden Re-characterization**: Re-run the golden reference standard across all sweeps. Verify measured insertion loss agrees with nominal reference values to within +/-0.30 dB.",
+    "5. **Configuration Baseline Restoration**: Restore the last verified baseline configuration table before releasing the station to production."
+  ],
+  "case_id": "CASE_A",
+  "run_id": "RUN-6B60364B",
+  "timestamp": "2026-10-14T05:32:43Z",
+  "dispatched_by": "TestTrace-Guard-v0.1.0",
+  "dispatch_mode": "mock"
+}

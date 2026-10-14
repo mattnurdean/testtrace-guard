@@ -229,3 +229,20 @@ class AuditRecord(BaseModel):
     validator_verdict: str
     total_execution_time_ms: float
     audit_file_path: str
+
+# Append to testtrace/schemas.py
+class EvolusTicket(BaseModel):
+    ticket_id: str
+    ticket_type: str
+    target_entity: str
+    priority: str
+    status: str
+    title: str
+    description: str
+    sop_reference: str
+    action_items: list[str]
+    case_id: str
+    run_id: str
+    timestamp: str
+    dispatched_by: str = "TestTrace-Guard-v0.1.0"
+    dispatch_mode: str = "mock"

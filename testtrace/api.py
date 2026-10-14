@@ -93,3 +93,32 @@ def get_audit_record(run_id: str) -> PipelineRunResult:
     if not record:
         raise HTTPException(status_code=404, detail=f"Audit run '{run_id}' not found.")
     return record
+
+from testtrace.evolus import (
+    create_evolus_ticket,
+    dispatch_evolus_ticket,
+    list_dispatched_tickets,
+)
+from testtrace.schemas import EvolusTicket, PipelineRunResult
+
+
+@app.post("/evolus/dispatch/{run_id}", response_model=EvolusTicket, tags=["Evolus Integration"])
+def dispatch_to_evolus(run_id: str) -> EvolusTicket:
+    """Generate and dispatch an Evolus MES work order or FA quarantine ticket for a completed run."""
+    import json
+
+    audit_dir = Path("data/audit")
+    matches = list(audit_dir.glob(f"*{run_id}*.json"))
+    if not matches:
+        raise HTTPException(status_code=404, detail=f"Triage run '{run_id}' not found in audit trace directory.")
+
+    raw_run = json.loads(matches[0].read_text(encoding="utf-8"))
+    run_res = PipelineRunResult.model_validate(raw_run)
+    ticket = create_evolus_ticket(run_res)
+    return dispatch_evolus_ticket(ticket)
+
+
+@app.get("/evolus/tickets", response_model=list[EvolusTicket], tags=["Evolus Integration"])
+def get_evolus_tickets() -> list[EvolusTicket]:
+    """Retrieve all dispatched Evolus work orders and failure analysis tickets."""
+    return list_dispatched_tickets()
