@@ -20,7 +20,7 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 | 12 | DONE | <step12_commit_hash> | Demo script & CLI walkthrough verified (3/3 tests pass, docs/DEMO_SCRIPT.md) |
 | 13 | DONE | <step13_commit_hash> | Slides & submission write-up verified (3/3 tests pass, SLIDES_OUTLINE & SUBMISSION_TEXT) |
 | 14 | DONE | <step14_commit_hash> | Evolus MES integration verified (5/5 tests pass, testtrace/evolus.py & API dispatch endpoints) |
-| 15 | DONE | pending | Final submission checklist & repository bundle verification complete |
+| 15 | DONE | f195a51 | Final submission checklist & repository bundle verification complete (85/85 tests pass) |
 
 ## Files added (path — purpose)
 - .gitignore — ignore secrets, pycache, venv
