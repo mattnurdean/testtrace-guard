@@ -18,9 +18,9 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 | 10 | DONE | <step10_commit_hash> | Evaluation & AMD benchmark verified (8/8 tests pass, 43 cases evaluated) |
 | 11 | DONE | <step11_commit_hash> | Packaging & README verified (5/5 tests pass, pyproject.toml & complete README.md) |
 | 12 | DONE | <step12_commit_hash> | Demo script & CLI walkthrough verified (3/3 tests pass, docs/DEMO_SCRIPT.md) |
-| 13 | DONE | pending | Slides & submission write-up verified (3/3 tests pass, SLIDES_OUTLINE & SUBMISSION_TEXT) |
-| 14 | PENDING | — | Evolus integration (STRETCH) |
-| 15 | PENDING | — | Final submission |
+| 13 | DONE | <step13_commit_hash> | Slides & submission write-up verified (3/3 tests pass, SLIDES_OUTLINE & SUBMISSION_TEXT) |
+| 14 | DONE | pending | Evolus MES integration verified (5/5 tests pass, testtrace/evolus.py & API dispatch endpoints) |
+| 15 | IN_PROGRESS | — | Final submission checklist & repository bundle verification |
 
 ## Files added (path — purpose)
 - .gitignore — ignore secrets, pycache, venv
@@ -75,6 +75,8 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - docs/SLIDES_OUTLINE.md — comprehensive 7-slide presentation deck structure and speaker notes
 - docs/SUBMISSION_TEXT.md — hackathon submission description, problem statement, and technical architecture
 - tests/test_submission_docs.py — acceptance tests validating submission documents completeness and metric consistency
+- testtrace/evolus.py — automated MES work order and failure analysis ticket generator and dispatch client
+- tests/test_evolus.py — acceptance tests for Evolus ticket mapping, persistence, and REST API dispatch routes
 
 ## Decisions / overrides
 - Paused Step 1 live endpoint verification due to 404 route error on Token Factory; activated Playbook §5 mock mode fallback to safeguard internal freeze schedule (Oct 15).
@@ -100,6 +102,9 @@ GPU: UNVERIFIED | ROCm: UNVERIFIED | vLLM: UNVERIFIED | Model + license: UNVERIF
 - Verified RF failure isolation benchmarks: Category Accuracy >= 90%, Domain Accuracy >= 95%, Status Accuracy >= 95%, SOP Accuracy >= 95%, and Mean Latency < 100 ms.
 - Documented 7-slide presentation narrative covering problem statement, deterministic-first architecture, canonical scenarios, 43-case benchmark metrics, and AMD ROCm integration.
 - Included explicit descriptions and metrics for Canonical Cases A, B, and C in docs/SUBMISSION_TEXT.md to ensure consistency across submission documentation.
+- Created EvolusTicket Pydantic schema supporting both offline JSON queue mode and live REST API dispatch.
+- Integrated automated category-to-ticket mapping: STATION_CONFIGURATION -> STATION_MAINTENANCE_HALT (CRITICAL), DUT_DEFECT -> DUT_FAILURE_ANALYSIS_QUARANTINE (HIGH), INSUFFICIENT_EVIDENCE -> VERIFICATION_SWEEP_DISPATCH (HIGH).
+- Extended FastAPI app with POST /evolus/dispatch/{run_id} and GET /evolus/tickets endpoints for automated MES integration.
 
 ## Assumptions
 - Python 3.14 virtual environment active.
